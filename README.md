@@ -1,27 +1,62 @@
-# PauProject
+# Angular 2 Project - Pau Project
+13 May 2018
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This is pau project
 
-## Development server
+Bellow is description about project and way to you get and run source code.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## ENVIRONMENTS
 
-## Code scaffolding
+* Git.
+* Using ubuntu 16.04 OS.
+* Docker.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## TECHNOLOGY
 
-## Build
+* HTML5, CSS3.
+* TypeScript.
+* Angular 4.3.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## INSTALLATION
 
-## Running unit tests
+Open your terminal and run this commands:
+`$ sudo apt-get update`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`$ sudo apt-get install git`
 
-## Running end-to-end tests
+## USAGE
+### 1. Docker
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- You can install Docker follow this [guide](https://docs.docker.com/engine/installation/).
 
-## Further help
+### 2. Build Angular image
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Build your first Docpad image using Docker.
+
+```
+docker build -t angular-docker .
+```
+
+**NOTE**:
+
+- You can change your image by replacing `angular-docker` by any name you want.
+
+- This command only need to run once in the beginning.
+
+### 3. Angular Plugin
+
+```
+docker run -it --rm -w /home/app -v $(pwd):/home/app angular-docker npm install
+```
+
+### 4. Angular Run
+
+```
+docker run -it --rm -e HOSTNAME=0.0.0.0 -p 4200:4200 -w /home/app -v $(pwd):/home/app angular-docker
+```
+
+Now you can go to http://localhost:4200 to see web app.
+
+## LICENSE
+
+Copyright &copy; 2018+ All rights reserved.
