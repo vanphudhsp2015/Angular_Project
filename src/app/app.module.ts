@@ -24,11 +24,27 @@ import { CourseComponent } from './course/course.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { TrainerDetailComponent } from './trainer-detail/trainer-detail.component';
 
+import { Routes, RouterModule } from '@angular/router';
+
+import { SliderModule } from 'ngx-slider';
+import { SlideshowModule} from 'ng-simple-slideshow';
+
+
+
+
+const routes: Routes =[
+      { path: 'home',      component: HomeComponent },
+      { path: '',          redirectTo: 'home', pathMatch: 'full' },
+];
+
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    SliderModule,
+    SlideshowModule,
+    RouterModule.forRoot(routes)
 ];
 
 export const APP_SERVICES: any[] = [
