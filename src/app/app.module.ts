@@ -27,7 +27,7 @@ import { TrainerDetailComponent } from './trainer-detail/trainer-detail.componen
 import { Routes, RouterModule } from '@angular/router';
 
 import { SliderModule } from 'ngx-slider';
-import { SlideshowModule} from 'ng-simple-slideshow';
+// import { SlideshowModule} from 'ng-simple-slideshow';
 
 
 
@@ -43,7 +43,7 @@ export const APP_MODULES: any[] = [
     SharedModule,
     CoreModule,
     SliderModule,
-    SlideshowModule,
+    // SlideshowModule,
     RouterModule.forRoot(routes)
 ];
 
