@@ -26,6 +26,8 @@ import { TrainerDetailComponent } from './trainer-detail/trainer-detail.componen
 
 import { Routes, RouterModule } from '@angular/router';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { SliderModule } from 'ngx-slider';
 // import { SlideshowModule} from 'ng-simple-slideshow';
 
@@ -35,6 +37,9 @@ import { SliderModule } from 'ngx-slider';
 const routes: Routes =[
       { path: 'home',      component: HomeComponent },
       { path: '',          redirectTo: 'home', pathMatch: 'full' },
+      { path: 'find-us',      component: FindUsComponent },
+
+
       { path: '**',      component: PageNotFoundComponent },
 ];
 
@@ -44,6 +49,7 @@ export const APP_MODULES: any[] = [
     SharedModule,
     CoreModule,
     SliderModule,
+    AgmCoreModule,
     // SlideshowModule,
     RouterModule.forRoot(routes)
 ];

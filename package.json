@@ -13,6 +13,7 @@
     },
     "private": true,
     "dependencies": {
+        "@agm/core": "^1.0.0-beta.2",
         "@angular/animations": "6.0.1",
         "@angular/common": "6.0.1",
         "@angular/compiler": "6.0.1",
@@ -26,6 +27,7 @@
         "font-awesome": "^4.7.0",
         "ngx-slider": "0.0.5",
         "rxjs": "^6.1.0",
+        "rxjs-compat": "^6.1.0",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
