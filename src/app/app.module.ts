@@ -7,6 +7,8 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { TrainerModule } from './trainer/trainer.module';
+import { CourseModule } from './course/course.module';
 
 import { AppConfigService } from './core/services/app-config.service';
 import { AuthService } from './core/services/auth.service';
@@ -21,14 +23,14 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { FindUsComponent } from './find-us/find-us.component';
 import { CourseComponent } from './course/course.component';
-import { CourseDetailComponent } from './course-detail/course-detail.component';
-import { TrainerDetailComponent } from './trainer-detail/trainer-detail.component';
 
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    TrainerModule,
+    CourseModule
 ];
 
 export const APP_SERVICES: any[] = [
@@ -49,10 +51,8 @@ export const APP_COMPONENTS: any[] = [
     PageNotFoundComponent,
     ContactUsComponent,
     TrainerComponent,
-    TrainerDetailComponent,
     FindUsComponent,
-    CourseComponent,
-    CourseDetailComponent
+    CourseComponent
 ];
 
 @NgModule({
