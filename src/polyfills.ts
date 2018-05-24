@@ -77,9 +77,6 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-// <<<<<<< HEAD
-// // import { Observable } from "rxjs";
-// =======
-// >>>>>>> feature/implement-main-slider-component
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/catch';
+import { Observable } from "rxjs";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
