@@ -1,4 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ROUTES } from './assets'
+
+declare var $:any;
 
 @Component({
     selector: 'main-header',
@@ -8,9 +11,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
 
+    cate: any[] = ROUTES;
+
     constructor() { }
 
     ngOnInit() {
+       this.cate = ROUTES.filter(cate => cate);
+        $.getScript('../../../assets/js/function-main.min.js');
     }
 
 }

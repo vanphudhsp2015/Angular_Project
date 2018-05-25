@@ -10,9 +10,12 @@ import { MainDescriptionComponent } from './main-description/main-description.co
 import { ButtonComponent } from './button/button.component';
 import { TrainerComponent } from './trainer/trainer.component';
 
+import { SliderModule } from 'ngx-slider';
+
 export const SHARED_MODULE: any[] = [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SliderModule
 ];
 
 export const SHARED_COMPONENTS: any[] = [

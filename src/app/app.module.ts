@@ -24,11 +24,32 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { FindUsComponent } from './find-us/find-us.component';
 import { CourseComponent } from './course/course.component';
 
+import { Routes, RouterModule } from '@angular/router';
+
+import { AgmCoreModule } from '@agm/core';
+
+import { SliderModule } from 'ngx-slider';
+// import { SlideshowModule} from 'ng-simple-slideshow';
+
+
+
+
+const routes: Routes =[
+      { path: 'home',      component: HomeComponent },
+      { path: '',          redirectTo: 'home', pathMatch: 'full' },
+      { path: 'find-us',      component: FindUsComponent },
+
+
+      { path: '**',      component: PageNotFoundComponent },
+];
+
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    SliderModule,
+    AgmCoreModule,
     TrainerModule,
     CourseModule
 ];
