@@ -31,8 +31,10 @@ export const APP_MODULES: any[] = [
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    FormsModule,
     SliderModule,
-    AgmCoreModule,
+    ReactiveFormsModule,
+    // AgmCoreModule,
     TrainerModule,
     CourseModule
 ];

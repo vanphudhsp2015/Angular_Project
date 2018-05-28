@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'contact-us',
@@ -8,9 +10,25 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
-    constructor() { }
+    isLinear = false;
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
+    email = new FormControl('', [Validators.required, Validators.email]);
+
+    constructor(private _formBuilder: FormBuilder, private router: Router) { }
 
     ngOnInit() {
+        this.firstFormGroup = this._formBuilder.group({
+            firstCtrl: ['', Validators.required]
+          });
+          this.secondFormGroup = this._formBuilder.group({
+            secondCtrl: ['', Validators.required]
+          });
+    }
+    getErrorMessage() {
+        return this.email.hasError('required') ? 'You must enter a value' :
+            this.email.hasError('email') ? 'Not a valid email' :
+                '';
     }
 
 }
