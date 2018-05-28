@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { CourseComponent } from './course.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { TypingAnimationDirective } from 'angular-typing-animation';
+
 
 export const SHARED_MODULE: any[] = [
     CommonModule,
@@ -17,6 +19,9 @@ export const SHARED_COMPONENTS: any[] = [
 @NgModule({
     imports: [...SHARED_MODULE],
     exports: [...SHARED_COMPONENTS],
-    declarations: [...SHARED_COMPONENTS]
+    declarations: [...SHARED_COMPONENTS,
+        CourseDetailComponent,
+        TypingAnimationDirective
+    ]
 })
 export class CourseModule { }
