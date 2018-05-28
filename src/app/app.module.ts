@@ -25,8 +25,8 @@ import { FindUsComponent } from './find-us/find-us.component';
 import { CourseComponent } from './course/course.component';
 
 import { Routes, RouterModule } from '@angular/router';
-
-import { AgmCoreModule } from '@agm/core';
+import { TypingAnimationDirective, TypingAnimationModule } from 'angular-typing-animation'
+// import { AgmCoreModule } from '@agm/core';
 
 import { SliderModule } from 'ngx-slider';
 // import { SlideshowModule} from 'ng-simple-slideshow';
@@ -49,7 +49,8 @@ export const APP_MODULES: any[] = [
     SharedModule,
     CoreModule,
     SliderModule,
-    AgmCoreModule,
+    // AgmCoreModule,
+    // TypingAnimationModule,
     TrainerModule,
     CourseModule
 ];
