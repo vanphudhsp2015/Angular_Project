@@ -49,7 +49,7 @@
 	<!-- content focus-on -->
 	<!-- content focus-on -->
 	<div class="container homeSection__wrapper no-padding">
-		
+
 		<div *ngFor = "let focusitems of focusitems" routerLinkActive="active" class="homeCons__txt col-sm-7 col-md-5 col-lg-push-1">
 			<h2 class="homeCons__title homeSection__title"><a class="background-cate">FOCUS ON</a></h2>
 			<h3 class="homeCons__title homeSection__sub">{{focusitems.title}}</h3>
@@ -68,7 +68,29 @@
 </div>
 
 
-<main-trainer></main-trainer>
+<div class="homeMktg homeSection">
+    <div class="container no-padding">
+        <div class="homeMktg__txt text-center">
+            <h2 class="homeMktg__title homeSection__title">
+                Trainers
+            </h2>
+            <main-title [items]="items">
+            </main-title>
+            <main-description [descriptions]="descriptions">
+            </main-description>
+            <a routerlink="/trainer">
+                <main-button>
+                </main-button>
+            </a>
+            <div class="homeMktg__services">
+                <div class="owl-carousel owl-theme">
+                    <main-trainer *ngFor ="let trainer of traineritems" [trainer]="trainer" (trainerClicked)="onTrainerClicked($event)">
+                    </main-trainer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <main-footer></main-footer>

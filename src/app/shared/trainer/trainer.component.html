@@ -1,24 +1,9 @@
-<div class="homeMktg homeSection">
-   
-   <div class="container no-padding">
-      <div class="homeMktg__txt text-center">
-         <h2 class="homeMktg__title homeSection__title">Trainers</h2>
-         <main-title [items]="items"></main-title>
-         <main-description [descriptions]="descriptions"></main-description>
-         <a routerLink="/trainer"><main-button></main-button></a>
-         <div class="homeMktg__services">
-            <div class="owl-carousel owl-theme">
-               <div *ngFor = "let traineritems of traineritems" routerLinkActive="active" class="service linkTo marketing plan">
-                  <img class="lazy service__feat" src="{{traineritems.img}}" width="270.5"/>
-                  <h4 class="service__title text-uppercase">{{traineritems.name}}</h4>
-                  <div class="service__excerpt hidden-xs">
-                     <p>{{traineritems.position}}
-                     </p>
-                  </div>
-                  <a class="service__link linkFrom roundButton roundButton--green hidden-xs" href="#"></a><a class="service__link button button--black hidden-sm hidden-md hidden-lg" href="#">View Profile</a>
-               </div>
-            </div>
-         </div>
-      </div>
+<div routerLinkActive="active" class="service linkTo marketing plan">
+   <img class="lazy service__feat" src="{{trainer.img}}" width="270.5"/>
+   <h4 class="service__title text-uppercase">{{trainer.name}}</h4>
+   <div class="service__excerpt hidden-xs">
+      <p>{{trainer.position}}
+      </p>
    </div>
+   <a class="service__link linkFrom roundButton roundButton--green hidden-xs"></a><a class="service__link button button--black hidden-sm hidden-md hidden-lg" (click)="onTrainerClicked($event, trainer.id)" href="javascript:void(0)">View Profile</a>
 </div>

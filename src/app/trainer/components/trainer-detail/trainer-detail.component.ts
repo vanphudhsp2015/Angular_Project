@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'trainer-detail',
@@ -8,7 +9,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class TrainerDetailComponent implements OnInit {
 
-    constructor() { }
+    constructor(private activatedRoute: ActivatedRoute) {
+        let params: any = this.activatedRoute.snapshot.params;
+        console.log('trainer id: ', params.id);
+    }
 
     ngOnInit() {
     }

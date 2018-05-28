@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { ROUTES } from './trainers-data';
 declare var $:any;
 import { Router } from '@angular/router';
@@ -10,24 +10,16 @@ import { Router } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainerComponent implements OnInit {
+    @Input() trainer: any;
+    @Output() trainerClicked: EventEmitter<any> = new EventEmitter<any>();
 
-  traineritems: any[];
+    constructor(private router: Router) { }
 
-  items: any[] = [
-        { title: 'SAY SOMETHIMG ABOUT TRAINER' },
-  ];
+    ngOnInit() {
+    }
 
-
-  descriptions: any[] = [
-        { title: 'Working side by side with your team to manage and optimize your digital sport investments.' },
-  ];
-
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-     $.getScript('../../../../assets/js/function_home.min.js');
-     this.traineritems = ROUTES.filter(traineritems => traineritems);
-  }
-
+    onTrainerClicked($event, trainerId) {
+        this.trainerClicked.emit(trainerId);
+        console.log('trainer id: ', trainerId);
+    }
 }
