@@ -26,7 +26,7 @@ import { CourseComponent } from './course/course.component';
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 
 import { SliderModule } from 'ngx-slider';
 // import { SlideshowModule} from 'ng-simple-slideshow';
@@ -49,7 +49,7 @@ export const APP_MODULES: any[] = [
     SharedModule,
     CoreModule,
     SliderModule,
-    AgmCoreModule,
+    // AgmCoreModule,
     TrainerModule,
     CourseModule
 ];
