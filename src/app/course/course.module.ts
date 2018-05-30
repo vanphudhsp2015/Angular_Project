@@ -16,7 +16,6 @@ export const SHARED_COMPONENTS: any[] = [
 
 @NgModule({
     imports: [...SHARED_MODULE],
-    exports: [...SHARED_COMPONENTS],
     declarations: [...SHARED_COMPONENTS]
 })
 export class CourseModule { }

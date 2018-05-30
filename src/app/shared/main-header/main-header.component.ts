@@ -17,7 +17,7 @@ export class MainHeaderComponent implements OnInit {
 
     ngOnInit() {
         this.cate = ROUTES.filter(cate => cate);
-        // $.getScript('../../../assets/js/function-main.min.js');
+        $.getScript('../../../assets/js/function-main.min.js');
     }
 
 }
