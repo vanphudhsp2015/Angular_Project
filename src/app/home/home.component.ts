@@ -2,23 +2,25 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-declare var $:any;
+declare var $: any;
 import { ROUTESC } from './data/course-child-data';
 import { ROUTESP } from './data/course-parent-data';
 import { ROUTESF } from './data/focus-on-data';
 import { ROUTES } from '../shared/trainer/trainers-data';
+import { HomeService } from '../core/services/home.service';
 
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
+    providers: [HomeService],
     changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class HomeComponent implements OnInit {
     parentcourse: any[];
-    chilecourse: any[];
+    childcourses: any[];
     focusitems: any[];
 
     traineritems: any;
@@ -31,19 +33,31 @@ export class HomeComponent implements OnInit {
         { title: 'with out 3-days all access pass with no commitment.' },
     ];
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService) {
     }
 
     ngOnInit() {
-       this.parentcourse = ROUTESP.filter(parentcourse => parentcourse);
-       this.chilecourse = ROUTESC.filter(chilecourse => chilecourse);
-       this.focusitems = ROUTESF.filter(focusitems => focusitems);
-       this.traineritems = ROUTES.filter(traineritems => traineritems);
+        this.home.getParentCourse().subscribe(
+            data => this.parentcourse = data.content
+        );
+        this.home.getChildCourse().subscribe(
+            data => this.childcourses = data.content.splice(1, 3)
+        );
+        //    this.parentcourse = ROUTESP.filter(parentcourse => parentcourse);
+        //    this.chilecourse = ROUTESC.filter(chilecourse => chilecourse);
+        this.focusitems = ROUTESF.filter(focusitems => focusitems);
+        //    this.traineritems = ROUTES.filter(traineritems => traineritems);
+        this.home.getTopTrainer().subscribe(
+            data => this.traineritems = data.content
+        )
     }
 
+    // onTrainerClicked(trainerId: number) {
+    //     console.log('Clicked on button view profile!');
+    //     this.router.navigate(['../trainer/', trainerId]);
+    // }
     onTrainerClicked(trainerId: number) {
-      console.log('Clicked on button view profile!');
-      this.router.navigate(['../trainer/', trainerId]);
+        console.log('Clicked on button view profile!');
+        this.router.navigate(['../trainer/']);
     }
-
 }

@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { TrainerModule } from './trainer/trainer.module';
 import { CourseModule } from './course/course.module';
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 import { SliderModule } from 'ngx-slider';
 
 import { AppConfigService } from './core/services/app-config.service';
@@ -34,6 +34,7 @@ export const APP_MODULES: any[] = [
     FormsModule,
     SliderModule,
     ReactiveFormsModule,
+    HttpModule,
     // AgmCoreModule,
     TrainerModule,
     CourseModule

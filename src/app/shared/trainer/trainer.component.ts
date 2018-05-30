@@ -20,6 +20,6 @@ export class TrainerComponent implements OnInit {
 
     onTrainerClicked($event, trainerId) {
         this.trainerClicked.emit(trainerId);
-        console.log('trainer id: ', trainerId);
+        // console.log('trainer id: ', trainerId);
     }
 }

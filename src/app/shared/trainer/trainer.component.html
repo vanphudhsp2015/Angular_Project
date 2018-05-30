@@ -1,9 +1,9 @@
 <div routerLinkActive="active" class="service linkTo marketing plan">
-   <img class="lazy service__feat" src="{{trainer.img}}" width="270.5"/>
-   <h4 class="service__title text-uppercase">{{trainer.name}}</h4>
+   <img class="lazy service__feat" src="{{trainer.image}}" width="270.5"/>
+   <h4 class="service__title text-uppercase">{{trainer.firstName+" " + trainer.lastName}}</h4>
    <div class="service__excerpt hidden-xs">
-      <p>{{trainer.position}}
+      <p>{{trainer.description}}
       </p>
    </div>
-   <a class="service__link linkFrom roundButton roundButton--green hidden-xs"></a><a class="service__link button button--black hidden-sm hidden-md hidden-lg" (click)="onTrainerClicked($event, trainer.id)" href="javascript:void(0)">View Profile</a>
+   <a class="service__link linkFrom roundButton roundButton--green hidden-xs"></a><a class="service__link button button--black hidden-sm hidden-md hidden-lg" (click)="onTrainerClicked($event, trainer.idTrainer)" href="javascript:void(0)">View Profile</a>
 </div>
