@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -52,6 +53,6 @@ export const ROUTES: Routes = [
     exports: [
         RouterModule
     ],
-    providers: []
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })
 export class AppRoutingModule { }
