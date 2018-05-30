@@ -21,9 +21,9 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { TrainerComponent } from './trainer/trainer.component';
 import { FindUsComponent } from './find-us/find-us.component';
 import { CourseComponent } from './course/course.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 export const APP_MODULES: any[] = [
     BrowserModule,
@@ -54,9 +54,9 @@ export const APP_COMPONENTS: any[] = [
     HomeComponent,
     PageNotFoundComponent,
     ContactUsComponent,
-    TrainerComponent,
     FindUsComponent,
-    CourseComponent
+    CourseComponent,
+    TrainerComponent
 ];
 
 @NgModule({
