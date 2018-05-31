@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
+import { TrainerComponent } from './trainer.component';
 
 export const SHARED_MODULE: any[] = [
     CommonModule,
