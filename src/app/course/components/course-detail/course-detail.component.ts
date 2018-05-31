@@ -13,9 +13,11 @@ export class CourseDetailComponent implements OnInit {
 
     params:any;
     ngOnInit(): void {
-        
-        this.courseService.getCourse(2).subscribe(
-            data=>this.course=data
+        this.params = this.activatedRoute.snapshot.params;
+        this.courseService.getCourse(this.params.id).subscribe(
+            data=>{this.course=data
+            console.log(data);
+            }
         )
     }
     course: any[] ;
@@ -31,10 +33,9 @@ export class CourseDetailComponent implements OnInit {
     
     stringSologan1: string;
     stringSologan2: string;
-    coursess: any[];
 
     constructor(private activatedRoute:ActivatedRoute,private courseService:CourseService) {
-        this.params = this.activatedRoute.snapshot.params;
+        
     }
 
 }
