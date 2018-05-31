@@ -3,9 +3,9 @@ import {  RouteInfo } from './domain';
 export const ROUTES: RouteInfo[] = [
 
     // { title: 'HOME', routerUrl: '/', class: [''] },
-    { title: 'PROGRAMS', routerUrl: '/programs', class: ['Body rental', 'Training', 'Audits', 'Business'] },
-    { title: 'FACILITIES', routerUrl: '/facilities', class: ['CRO', 'ANALYTICS', 'ARC'] },
-    { title: 'GROUP', routerUrl: '/group', class: ['TEAM', 'FRIEND', 'STYLE'] },
-    { title: 'EVENTS', routerUrl: '/events', class: ['APRIL', 'MAY'] },
-    { title: 'MEMBER', routerUrl: '/member', class: ['LOG-IN', 'REGISTER'] },
+    { title: 'TRAINER', routerUrl: 'trainer', class: [] },
+    { title: 'NEWS', routerUrl: 'news', class: [] },
+    { title: 'COURSE', routerUrl: 'course', class: [] },
+    { title: 'EVENTS', routerUrl: 'events', class: [] },
+    // { title: 'MEMBER', routerUrl: '/member', class: ['LOG-IN', 'REGISTER'] },
 ];

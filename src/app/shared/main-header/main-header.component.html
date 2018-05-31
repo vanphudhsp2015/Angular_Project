@@ -17,7 +17,7 @@
          <span></span>
       </div>
       <div class="header__logo no-padding-left">
-         <a href="/">
+         <a routerLink="/home">
             <img class="logo-kai" src="assets/img/KAI.svg">
          </a>
       </div>
@@ -27,16 +27,16 @@
                <ul id="menu-main_nav" class="nav navbar-nav text-right sf-menu">
 
                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-23 menu-page-9">
-                     <a routerLink= "/" >HOME</a>
+                     <a routerLink= "/home" >HOME</a>
                   </li>
 
                   <li id="menu-item-23" *ngFor = "let cate of cate" routerLinkActive="active" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-23 menu-page-9">
-                     <a [routerLink]= "['/', cate.title]" >{{cate.title}}</a>
-                     <ul class="sub-menu">
+                     <a [routerLink]= "['/', cate.routerUrl]" >{{cate.title}}</a>
+                     <!-- <ul class="sub-menu">
 
                         <li id="menu-item-205" *ngFor = "let childcate of cate.class" routerLinkActive="active" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-205 menu-page-33"><a [routerLink]= "['/', cate.title, childcate]">{{childcate}}</a>
                         </li>
-                     </ul>
+                     </ul> -->
                   </li>
 
                   <li id="menu-item-19" class="contacts-icon menu-item menu-item-type-post_type menu-item-object-page menu-item-19 menu-page-17"><a routerLink="/contact-us">CONTACT</a></li>
@@ -50,7 +50,7 @@
          </div>
       </div>
       <div class="hidden-md hidden-lg manifesto-mob-icon">
-         <a href="#">
+         <a routerLink="/home">
             <img src="assets/img/search-find.png" width="24.5" height="24.5">
          </a>
       </div>
