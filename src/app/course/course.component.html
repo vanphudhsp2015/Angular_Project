@@ -25,15 +25,16 @@
 		<!-- course -->
 		<!-- course -->
 		<!-- course -->
-			<div *ngFor= "let courses of courses" routerLinkActive="active" class="serviceWrapper">
+	
+			<div *ngFor="let course of courses" routerLinkActive="active" class="serviceWrapper">
 				<div class="service linkTo seo pointer">
-					<img class="lazy service__feat" width="270.5" src="assets/img/courses.svg" style="">
-					<h4 class="service__title text-uppercase" >{{courses.title}}</h4>
+					<img class="lazy service__feat" width="270.5" src="{{course.image}}">
+					<h4 class="service__title text-uppercase" >{{course.name}}</h4>
 					<div class="service__excerpt hidden-xs">
-						<p>{{courses.decription}}
+						<p>{{course.description}}
 						</p>
 					</div>
-					<a class="linkFrom service__link roundButton roundButton--green" [routerLink]= "['/courses-detail', courses.path]" (click)="navClick(courses.path)" ></a>
+					<a class="linkFrom service__link roundButton roundButton--green" [routerLink]= "['/course', course.idCourse]"  ></a>
 				</div>
 			</div>
 		</div>
@@ -56,3 +57,4 @@
 </div>
 </div>
 </div>
+<main-footer></main-footer>
