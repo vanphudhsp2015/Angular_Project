@@ -8,7 +8,7 @@ import { CourseService } from '../core/services/course.service';
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.css'],
     providers:[CourseService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class CourseComponent implements OnInit {
 
