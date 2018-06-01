@@ -16,7 +16,7 @@ export class CourseDetailComponent implements OnInit {
         this.params = this.activatedRoute.snapshot.params;
         this.courseService.getCourse(this.params.id).subscribe(
             data=>{this.course=data
-            console.log(data);
+            // console.log(data);
             }
         );
         setInterval(() => {

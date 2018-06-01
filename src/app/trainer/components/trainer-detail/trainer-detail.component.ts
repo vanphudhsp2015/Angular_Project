@@ -11,7 +11,7 @@ export class TrainerDetailComponent implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute) {
         let params: any = this.activatedRoute.snapshot.params;
-        console.log('trainer id: ', params.id);
+        // console.log('trainer id: ', params.id);
     }
 
     ngOnInit() {
