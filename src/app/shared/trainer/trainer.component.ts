@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ROUTES } from './trainers-data';
 declare var $:any;
 import { Router } from '@angular/router';
@@ -13,13 +13,15 @@ export class TrainerComponent implements OnInit {
     @Input() trainer: any;
     @Output() trainerClicked: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(private router: Router) { }
+    constructor(private router: Router,private ref: ChangeDetectorRef) { }
 
     ngOnInit() {
+        
     }
 
     onTrainerClicked($event, trainerId) {
         this.trainerClicked.emit(trainerId);
         // console.log('trainer id: ', trainerId);
+        
     }
 }

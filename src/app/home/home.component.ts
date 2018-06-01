@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { HomeService } from '../core/services/home.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
     providers: [HomeService],
-    changeDetection: ChangeDetectionStrategy.Default,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class HomeComponent implements OnInit {
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         { title: 'with out 3-days all access pass with no commitment.' },
     ];
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService,private ref: ChangeDetectorRef) {
     }
 
     ngOnInit() {
@@ -49,7 +49,11 @@ export class HomeComponent implements OnInit {
         //    this.traineritems = ROUTES.filter(traineritems => traineritems);
         this.home.getTopTrainer().subscribe(
             data => this.traineritems = data.content
-        )
+        );
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 1000);
+        
     }
 
     // onTrainerClicked(trainerId: number) {
