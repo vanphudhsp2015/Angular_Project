@@ -46,103 +46,27 @@
     <div class="lifestyleWrapper">
       <div class="container">
         <div class="col-md-8 center-block">
-          <div class="lifestyleWrapper__box">
-            <strong class="homeSection__title lifestyleWrapper__title text-center">A glimpse of our office</strong>
+          <div class="lifestyleWrapper__box" *ngFor="let news of listNews">
+            <strong class="homeSection__title lifestyleWrapper__title text-center">{{news.title}}</strong>
             <div class="homeSection__text lifestyleWrapper__txt text-center">
               <div class="page" title="Page 11">
                 <div class="section">
                   <div class="layoutArea">
                     <div class="column">
-                      <p>This is where the magic happens. Our office has become our home away from home, a place where we think,
-                        create and connect.</p>
+                      <p>{{news.description}}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <ul class="lifestyleWrapper__list clearfix">
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/enviroment_01.jpg" >
+              <li class="lifestyleWrapper__img no-padding" [innerHTML]="news.details">
+                
               </li>
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/enviroment_05.jpg" >
-              </li>
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/enviroment_03.jpg" >
-              </li>
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/enviroment_04.jpg" >
-              </li>
+              
             </ul>
           </div>
-          <div class="lifestyleWrapper__box">
-            <strong class="homeSection__title lifestyleWrapper__title text-center">Business review: Carnia</strong>
-            <div class="homeSection__text lifestyleWrapper__txt text-center">
-              <div class="page" title="Page 12">
-                <div class="section">
-                  <div class="layoutArea">
-                    <div class="column">
-                      <p>In autumn we visited Carnia, a region of Friuli Venezia Giulia that borders with Austria and Slovenia.
-                        Surrounded by the peaks of the Carnic Alps, leaving our tracks in the fresh snow, we fell in love
-                        with this place.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ul class="lifestyleWrapper__list clearfix">
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/carnia.jpg" >
-              </li>
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/carnia-storeis.jpg" >
-              </li>
-            </ul>
-          </div>
-          <div class="lifestyleWrapper__box">
-            <strong class="homeSection__title lifestyleWrapper__title text-center">Padua</strong>
-            <div class="homeSection__text lifestyleWrapper__txt text-center">
-              <div class="page" title="Page 12">
-                <div class="section">
-                  <div class="layoutArea">
-                    <div class="column">
-                      <p>We work in the heart of one of the most charming and dynamic cities in Italy. Home to Italy’s second-oldest
-                        University, Padua is one of the main economic centres of North Eastern Italy.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p>&nbsp;</p>
-            </div>
-            <ul class="lifestyleWrapper__list clearfix">
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/P8900577.jpg" >
-              </li>
-            </ul>
-          </div>
-          <div class="lifestyleWrapper__box">
-            <strong class="homeSection__title lifestyleWrapper__title text-center">Business Review: Apulia</strong>
-            <div class="homeSection__text lifestyleWrapper__txt text-center">
-              <div class="page" title="Page 12">
-                <div class="section">
-                  <div class="layoutArea">
-                    <div class="column">
-                      <p>Last summer we travelled south to Apulia, among trulli and century-old olive trees. It was the perfect
-                        location to take stock of the situation, brainstorm and get ready to kick off new projects.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ul class="lifestyleWrapper__list clearfix">
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/travel.jpg" >
-              </li>
-              <li class="lifestyleWrapper__img no-padding">
-                <img class="lazy" alt="" src="assets/img/focus/P8810491.jpg" >
-              </li>
-            </ul>
-          </div>
+          
         </div>
       </div>
     </div>
