@@ -15,7 +15,7 @@ export const ROUTES = [
     templateUrl: './trainer.component.html',
     styleUrls: ['./trainer.component.css'],
     providers:[TrainerService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class TrainerComponent implements OnInit {
     traineritems: any[];

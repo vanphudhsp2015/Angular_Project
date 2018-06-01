@@ -7,7 +7,7 @@ import { CourseService } from '../../../core/services/course.service';
     templateUrl: './course-detail.component.html',
     styleUrls: ['./course-detail.component.css'],
     providers:[CourseService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class CourseDetailComponent implements OnInit {
 
@@ -20,7 +20,7 @@ export class CourseDetailComponent implements OnInit {
             }
         )
     }
-    course: any[] ;
+    course: any ;
     // = [
 
     //         { levels: 'classic', title: 'CLASSIC COURSE', content: '/***/',  class: "/courses-detail/classic" },

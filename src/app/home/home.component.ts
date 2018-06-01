@@ -15,7 +15,7 @@ import { HomeService } from '../core/services/home.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
     providers: [HomeService],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class HomeComponent implements OnInit {
