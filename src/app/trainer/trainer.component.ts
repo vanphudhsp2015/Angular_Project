@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { TrainerService } from '../core/services/trainer.service';
 export const ROUTES = [
@@ -15,11 +15,11 @@ export const ROUTES = [
     templateUrl: './trainer.component.html',
     styleUrls: ['./trainer.component.css'],
     providers:[TrainerService],
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainerComponent implements OnInit {
     traineritems: any[];
-    constructor(private router: Router,private trainerService:TrainerService) { }
+    constructor(private router: Router,private trainerService:TrainerService,private ref: ChangeDetectorRef) { }
     // goToTrainer(){
     //     this.router.navigateByUrl('/trainer');
     //      location.reload()
@@ -28,6 +28,9 @@ export class TrainerComponent implements OnInit {
         this.trainerService.getAllTrainers().subscribe(
             data=>this.traineritems=data
         );
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 1000);
         // this.traineritems = ROUTES.filter(traineritems => traineritems);
         // console.log(this.traineritems);
     }

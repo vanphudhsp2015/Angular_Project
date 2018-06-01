@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { CourseService } from '../core/services/course.service';
@@ -8,7 +8,7 @@ import { CourseService } from '../core/services/course.service';
     templateUrl: './course.component.html',
     styleUrls: ['./course.component.css'],
     providers:[CourseService],
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class CourseComponent implements OnInit {
 
     
 
-    constructor(private router: Router, private location: Location,private coursez:CourseService) { 
+    constructor(private router: Router, private location: Location,private coursez:CourseService,private ref: ChangeDetectorRef) { 
         
     }
     ngOnInit(): void {
@@ -40,7 +40,9 @@ export class CourseComponent implements OnInit {
                 console.log(data)
             }
         );
-
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 1000);
     }
     // ngOnInit() {
     //   setTimeout(() => this.start = true, 1000)

@@ -28,6 +28,11 @@ export class HomeService {
             .map(response => response.json())
             .catch(this.handleError);
     }
+    getTopSlide() {
+        return this.http.get(this.url + "slide")
+            .map(response => response.json())
+            .catch(this.handleError);
+    }
     
     private handleError(error: Response) {
         return Observable.throw(error.statusText);

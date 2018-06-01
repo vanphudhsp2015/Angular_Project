@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseService } from '../../../core/services/course.service';
 
@@ -7,7 +7,7 @@ import { CourseService } from '../../../core/services/course.service';
     templateUrl: './course-detail.component.html',
     styleUrls: ['./course-detail.component.css'],
     providers:[CourseService],
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseDetailComponent implements OnInit {
 
@@ -18,7 +18,10 @@ export class CourseDetailComponent implements OnInit {
             data=>{this.course=data
             console.log(data);
             }
-        )
+        );
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 1000);
     }
     course: any ;
     // = [
@@ -34,7 +37,7 @@ export class CourseDetailComponent implements OnInit {
     stringSologan1: string;
     stringSologan2: string;
 
-    constructor(private activatedRoute:ActivatedRoute,private courseService:CourseService) {
+    constructor(private activatedRoute:ActivatedRoute,private courseService:CourseService,private ref: ChangeDetectorRef) {
         
     }
 
