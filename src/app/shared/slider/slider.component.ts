@@ -26,7 +26,7 @@ export class SliderComponent implements OnInit {
     
     this.homeService.getTopSlide().subscribe(
       data=>{
-        console.log(data);
+        // console.log(data);
         data.forEach(element => {
           this.slider.items.push({src:element.image,title:element.title});
         });
