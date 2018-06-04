@@ -12,7 +12,8 @@ import { NewsComponent } from './news/news.component';
 import { ROUTES as CourseRoutingModule } from './course/course-routing.module';
 import { ROUTES as TrainerRoutingModule } from './trainer/trainer-routing.module';
 import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
-
+import {CourseDetailComponent} from './dashboard/course/course-detail/course-detail.component';
+import {CourseComponent} from './dashboard/course/course/course.component';
 export const ROUTES: Routes = [
     {
         path: '',
@@ -54,6 +55,14 @@ export const ROUTES: Routes = [
     {
         path: 'home-dashboard',
         component: HomeDashboardComponent
+    },
+    {
+        path: 'course-dashboard-detail',
+        component: CourseDetailComponent
+    },
+    {
+        path: 'course-dashboard',
+        component: CourseComponent
     },
     {
         path: '**',

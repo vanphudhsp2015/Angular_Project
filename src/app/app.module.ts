@@ -27,10 +27,8 @@ import { CourseComponent } from './course/course.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EventComponent } from './event/event.component';
 import { NewsComponent } from './news/news.component';
-import { FooterComponent } from './dashboard/components/footer/footer.component';
-import { NavbarComponent } from './dashboard/components/navbar/navbar.component';
-import { SidebarComponent } from './dashboard/components/sidebar/sidebar.component';
-import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
+import {DashboardModule} from './dashboard/dashboard.module';
+
 
 export const APP_MODULES: any[] = [
     BrowserModule,
@@ -43,7 +41,9 @@ export const APP_MODULES: any[] = [
     HttpModule,
     // AgmCoreModule,
     TrainerModule,
-    CourseModule
+    CourseModule,
+    DashboardModule,
+    HttpClientModule
 ];
 
 export const APP_SERVICES: any[] = [
@@ -71,7 +71,7 @@ export const APP_COMPONENTS: any[] = [
 ];
 
 @NgModule({
-    declarations: [...APP_COMPONENTS, FooterComponent, NavbarComponent, SidebarComponent, HomeComponent, HomeDashboardComponent],
+    declarations: [...APP_COMPONENTS],
     imports: [...APP_MODULES],
     providers: [...APP_SERVICES],
     bootstrap: [AppComponent]
