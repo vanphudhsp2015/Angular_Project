@@ -12,7 +12,7 @@ import { CourseService } from '../core/services/course.service';
 })
 export class CourseComponent implements OnInit {
 
-    
+
     courses:any[];
     // =[
     //     { path: 'classic', title: 'CLASSIC', decription: 'Putting you in the spotlight ', img: 'dashboard', class: ''},
@@ -22,15 +22,15 @@ export class CourseComponent implements OnInit {
     //     { path: 'analythics', title: 'ANALYTHICS', decription: 'Aiming at the important numbers', img:'bubble_chart', class: ''},
     //     { path: 'master', title: 'MASTER', decription: 'Level maximum', img:'location_on', class: ''},
     //     { path: 'final', title: 'FINAL', decription: 'Final Courses', img:'notifications', class: ''},
-    
+
     // ];
     reload: number;
     reload1: number;
 
-    
 
-    constructor(private router: Router, private location: Location,private coursez:CourseService,private ref: ChangeDetectorRef) { 
-        
+
+    constructor(private router: Router, private location: Location,private coursez:CourseService,private ref: ChangeDetectorRef) {
+
     }
     ngOnInit(): void {
         this.courses=[];

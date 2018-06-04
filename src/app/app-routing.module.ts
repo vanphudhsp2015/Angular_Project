@@ -11,6 +11,7 @@ import { NewsComponent } from './news/news.component';
 
 import { ROUTES as CourseRoutingModule } from './course/course-routing.module';
 import { ROUTES as TrainerRoutingModule } from './trainer/trainer-routing.module';
+import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
 
 export const ROUTES: Routes = [
     {
@@ -49,6 +50,10 @@ export const ROUTES: Routes = [
     {
         path: 'news',
         component: NewsComponent
+    },
+    {
+        path: 'home-dashboard',
+        component: HomeDashboardComponent
     },
     {
         path: '**',
