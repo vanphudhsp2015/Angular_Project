@@ -4,7 +4,7 @@
     <!-- sidebar -->
     <app-sidebar></app-sidebar>
     <!-- sidebar -->
-    <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-3.jpg)"></div>
   </div>
   <div class="main-panel">
     <!-- navbar -->
@@ -14,8 +14,6 @@
       <div class="container-fluid">
         <!-- row -->
         <div class="row">
-          <!-- <input type="datetime-local" [(ngModel)]="dateTimeLocal"><br />
-        {{dateTimeLocal}} -->
           <div class="col-md-12">
             <div class="card">
               <!-- card-header -->
@@ -29,20 +27,20 @@
                   <!-- row -->
                   <div class="row">
                     <div class="col-25">
-                      <label for="name">Tên Lớp</label>
+                      <label for="fname">Họ Lót</label>
                     </div>
                     <div class="col-75">
-                      <input type="text" name="name" [(ngModel)]="course.name" placeholder="Tên Lớp.." required>
+                      <input type="text" name="lastName" [(ngModel)]="trainer.lastName" placeholder="Họ Lót." required>
                     </div>
                   </div>
                   <!-- row -->
                   <!-- row -->
                   <div class="row">
                     <div class="col-25">
-                      <label for="lname">Giá Học Phí</label>
+                      <label for="lname">Tên</label>
                     </div>
                     <div class="col-75">
-                      <input placeholder="Giá Học Phí" type="text" name="price" [(ngModel)]="course.price" required>
+                      <input placeholder="Tên" type="text" name="firstName" [(ngModel)]="trainer.firstName" required>
                     </div>
                   </div>
                   <!-- row -->
@@ -50,40 +48,30 @@
                   <!-- row -->
                   <div class="row">
                     <div class="col-25">
-                      <label for="subject">Chi tiết</label>
+                      <label for="subject">Số Điện Thoại</label>
                     </div>
                     <div class="col-75">
-                      <app-ngx-editor [config]="editorConfig" [spellcheck]="true" name="details" [(ngModel)]="course.details" class="details_ngx"></app-ngx-editor>
+                      <input placeholder="Phone" type="text" name="phone" [(ngModel)]="trainer.phone" required>
                     </div>
                   </div>
                   <!-- row -->
                   <!-- row -->
                   <div class="row">
                     <div class="col-25">
-                      <label for="subject">Ngày Bắt Đầu</label>
+                      <label for="subject">Ngày Sinh</label>
                     </div>
                     <div class="col-75">
-                      <input placeholder="Ngày Bắt Đầu" type="date" name="dateStart" [(ngModel)]="course.dateStart" required>
+                      <input placeholder="Ngày Sinh" type="date" name="birthday" [(ngModel)]="trainer.birthday" required>
                     </div>
                   </div>
                   <!-- row -->
                   <!-- row -->
                   <div class="row">
                     <div class="col-25">
-                      <label for="subject">Ngày Kết Thúc</label>
+                      <label for="subject">Địa Chỉ</label>
                     </div>
                     <div class="col-75">
-                      <input placeholder="Ngày Kết Thúc" type="date" name="dateEnd" [(ngModel)]="course.dateEnd" required>
-                    </div>
-                  </div>
-                  <!-- row -->
-                  <!-- row -->
-                  <div class="row">
-                    <div class="col-25">
-                      <label for="subject">Thực Trạng</label>
-                    </div>
-                    <div class="col-75">
-                      <input placeholder="Thực Trạng" type="text" name="description" [(ngModel)]="course.description" required>
+                      <input placeholder="Địa Chỉ" type="text" name="address" [(ngModel)]="trainer.address" required>
                     </div>
                   </div>
                   <!-- row -->
@@ -93,10 +81,37 @@
                       <label for="country">Trạng Thái</label>
                     </div>
                     <div class="col-75">
-                      <select name="status" [(ngModel)]="course.status" required>
-                        <option value="undefined" [selected]=true [disabled]="true">Lựa Chọn</option>
+                      <select id="status" name="status" [(ngModel)]="trainer.status" required>
+                        <option value="undefined" [selected]=true [disabled]="true">--Chọn trạng thái--</option>
                         <option>Đang Hoạt Động</option>
                         <option>Hết Hoạt Động</option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="country">Thành Viên</label>
+                    </div>
+                    <div class="col-75">
+                      <select name="description" [(ngModel)]="trainer.description" required>
+                        <option value="undefined" [selected]=true [disabled]="true">--Chọn Thành Viên--</option>
+                        <option value="Giảng Viên">Giảng Viên</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- row -->
+                  <!-- row -->
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="subject">Category</label>
+                    </div>
+                    <div class="col-75">
+
+                      <select name="idCategory" [(ngModel)]="trainer.idCategory" required>
+                        <option value="undefined" [selected]=true [disabled]=true>Select project</option>
+                        <option value="1">Giảng Viên</option>
                       </select>
                     </div>
                   </div>
@@ -109,29 +124,14 @@
                     <div class="col-75">
                       <div>
                         <div>
-                          <input type="file" id="filePicker" (change)="handleFileSelect($event)" name="image" [(ngModel)]="course.image">
+                          <input type="file" id="filePicker" (change)="handleFileSelect($event)">
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- row -->
-
                   <!-- row -->
                   <div class="row">
-                    <div class="col-25">
-                      <label for="subject">Category</label>
-                    </div>
-                    <div class="col-75">
-                      <select name="idCategory" [(ngModel)]="course.idCategory" required>
-                        <option value="undefined" [selected]=true [disabled]="true">Lựa Chọn</option>
-                        <option value="1">Giang vbien</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- row -->
-                  <!-- row -->
-                  <div class="row">
-                    <!-- <input type="submit" name="send" value="lưu"> -->
                     <button type="submit" style="border-radius: 1px;background: #099d6e;float: right;">Lưu</button>
                   </div>
                   <!-- row -->

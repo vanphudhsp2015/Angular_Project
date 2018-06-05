@@ -1,60 +1,61 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Course } from '../../core/model/course';
+import { Trainer } from '../../core/model/trainer';
 import { Router } from '@angular/router';
-import { CourseService } from '../../core/service/course.service';
+import { TrainerService } from '../../core/service/trainer.service';
 @Component({
-    selector: 'course-detail',
-    templateUrl: './course-detail.component.html',
-    styleUrls: ['./course-detail.component.css'],
+    selector: 'trainer-detail',
+    templateUrl: './trainer-detail.component.html',
+    styleUrls: ['./trainer-detail.component.css'],
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseDetailComponent implements OnInit {
-    private course: Course[];
+export class TrainerDetailComponent implements OnInit {
+
+    private trainer: Trainer[];
     limit: number;
     numberOfBooks: number;
     page: number = 1;
-    filter: Course = new Course();
+    filter: Trainer = new Trainer();
     pagesIndex = [];
     maxpage: number = 0;
     max: number = 0;
-    constructor(private courseService: CourseService, private _router: Router) { }
+    constructor(private trainerService: TrainerService, private _router: Router) { }
 
     ngOnInit() {
         this.init();
+
     }
     // delete
-    deleteCourse(course) {
+    deleteTrainer(trainer) {
         let answer = confirm('Bạn Muốn Xóa ?');
         if (answer) {
-            // some code
-            this.courseService.deleteCourse(course.idCourse).subscribe((data) => {
-                this.course.splice(this.course.indexOf(course), 1);
+            this.trainerService.deleteTrainer(trainer.idTrainer).subscribe((data) => {
+                this.trainer.splice(this.trainer.indexOf(trainer), 1);
             }, (error) => {
                 console.log(error);
             });
         } else {
             // some code
-            console.log('end');
+
         }
 
     }
     // update
-    updateCourse(course) {
+    updateTrainer(trainer) {
         let answer = confirm('Bạn Muốn Sửa ?');
         if (answer) {
-            this.courseService.setter(course);
-            this._router.navigate(['course-dashboard']);
+            this.trainerService.setter(trainer);
+            this._router.navigate(['trainer-dashboard']);
         } else {
             // some code
             console.log('end');
         }
 
-
     }
+    // getdata
     init() {
-        this.courseService.getCourse().subscribe((course) => {
-            this.course = course;
-            this.numberOfBooks = this.course.length;
+        this.trainerService.getTrainer().subscribe((trainer) => {
+            this.trainer = trainer;
+            this.numberOfBooks = this.trainer.length;
             this.limit = 6;
             if (this.numberOfBooks < this.limit) {
                 this.maxpage = 1;
@@ -84,5 +85,7 @@ export class CourseDetailComponent implements OnInit {
     // set page
     setPage(pagenumber: number) {
         this.page = pagenumber;
+
     }
+
 }

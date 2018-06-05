@@ -27,9 +27,13 @@ import { CourseComponent } from './course/course.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EventComponent } from './event/event.component';
 import { NewsComponent } from './news/news.component';
-import {DashboardModule} from './dashboard/dashboard.module';
-
-
+import { DashboardModule } from './dashboard/dashboard.module';
+import { LoginComponent } from './login/login.component';
+import { CourseService } from './dashboard/core/service/course.service';
+import { DatePipe } from '@angular/common';
+import { LoginGuard } from './login/login.guard';
+import { NoLoginGuard } from './login/no-login.guard';
+import { TrainerService } from './dashboard/core/service/trainer.service';
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
@@ -51,11 +55,13 @@ export const APP_SERVICES: any[] = [
     LocalStorageService,
     ExceptionService,
     AuthService,
+    CourseService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: InterceptorService,
         multi: true
-    }
+    },
+
 ];
 
 export const APP_COMPONENTS: any[] = [
@@ -71,9 +77,9 @@ export const APP_COMPONENTS: any[] = [
 ];
 
 @NgModule({
-    declarations: [...APP_COMPONENTS],
+    declarations: [...APP_COMPONENTS, LoginComponent],
     imports: [...APP_MODULES],
-    providers: [...APP_SERVICES],
+    providers: [...APP_SERVICES, DatePipe, LoginGuard, NoLoginGuard, TrainerService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

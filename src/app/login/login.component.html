@@ -1,0 +1,69 @@
+<body class="home page-template page-template-page_HOME page-template-page_HOME-php page page-id-2 unknown" style="background: #fff;">
+  <main-header></main-header>
+  <div class="magento">
+
+
+    <div class="account-login">
+       <div class="breadcrumbs"><span xmlns:v="#"><span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">Home</a> / <span class="breadcrumb_last">Login</span></span></span></div>
+
+      <div class="page-title">
+        <h1>      Login or Create an Account      </h1>
+      </div>
+      <form  id="login-form" (ngSubmit)="login()">
+        <input name="form_key" type="hidden" >
+        <div class="fieldset">
+          <div class="col2-set">
+            <div class="col-1 registered-users">
+              <h2 class="legend">Registered Customers</h2>
+              <p>If you have an account with us, log in using your email address.</p>
+              <ul class="form-list">
+                <li>
+                  <label for="email" class="required"><em>*</em>Email Address</label>
+                  <div class="input-box validation-passed">
+                    <input name="password" [(ngModel)]="username"  id="email" type="email" class="input-text required-entry validate-email validation-passed" >
+                  </div>
+                </li>
+                <li>
+                  <label for="pass" class="required"><em>*</em>Password</label>
+                  <div class="input-box validation-passed">
+                    <input  type="password" name="password" [(ngModel)]="password" class="input-text required-entry validate-password validation-passed" >
+                  </div>
+                </li>
+                <li id="remember-me-box" class="control">
+                  <!-- <div class="input-box">
+                    <input type="checkbox" name="persistent_remember_me" class="checkbox" id="remember_meFoxMSmpi63" checked="checked" title="Remember Me">
+                  </div> -->
+                  <label for="remember_meFoxMSmpi63">Remember Me</label>
+
+                </li>
+              </ul>
+
+              <div class="form-list">
+                <div class="note">
+                  <a href="#">Forgot Your Password?</a>
+                </div>
+                <div class="buttons-set">
+                  <button type="submit" class="button button--black homeSection__button" name="send"><span><span>Login</span></span></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 new-users">
+              <h2 class="legend">New Members</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <div class="form-list">
+                <div class="buttons-set">
+                  <button type="submit" class="button button--black homeSection__button" routerLink='/MEMBER/REGISTER'><span><span>Register</span></span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <main-footer></main-footer>
+  </body>
+
+
+
