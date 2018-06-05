@@ -12,8 +12,13 @@ import { NewsComponent } from './news/news.component';
 import { ROUTES as CourseRoutingModule } from './course/course-routing.module';
 import { ROUTES as TrainerRoutingModule } from './trainer/trainer-routing.module';
 import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
-import {CourseDetailComponent} from './dashboard/course/course-detail/course-detail.component';
-import {CourseComponent} from './dashboard/course/course/course.component';
+import { CourseDetailComponent } from './dashboard/course/course-detail/course-detail.component';
+import { CourseComponent } from './dashboard/course/course/course.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
+import { NoLoginGuard } from './login/no-login.guard';
+import {TrainerComponent} from './dashboard/trainer/trainer/trainer.component';
+import {TrainerDetailComponent} from './dashboard/trainer/trainer-detail/trainer-detail.component';
 export const ROUTES: Routes = [
     {
         path: '',
@@ -23,6 +28,10 @@ export const ROUTES: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'contact-us',
@@ -53,16 +62,24 @@ export const ROUTES: Routes = [
         component: NewsComponent
     },
     {
-        path: 'home-dashboard',
+        path: 'home-dashboard', canActivate: [LoginGuard],
         component: HomeDashboardComponent
     },
     {
-        path: 'course-dashboard-detail',
+        path: 'course-dashboard-detail', canActivate: [LoginGuard],
         component: CourseDetailComponent
     },
     {
-        path: 'course-dashboard',
+        path: 'course-dashboard', canActivate: [LoginGuard],
         component: CourseComponent
+    },
+    {
+        path: 'trainer-dashboard', canActivate: [LoginGuard],
+        component: TrainerComponent
+    },
+    {
+        path: 'trainer-dashboard-detail', canActivate: [LoginGuard],
+        component: TrainerDetailComponent
     },
     {
         path: '**',

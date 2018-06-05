@@ -20,7 +20,7 @@
                       <div class="input-field col s10" >
 
                       <div class="form-group form-black is-empty" style="text-align: center;">
-                          <input type="text" class="form-control" placeholder="Tên Lớp" name="name" >
+                          <input type="text" class="form-control" placeholder="Tên Lớp" name="name" [(ngModel)]="filter.name">
                           <span class="material-input"></span>
                       </div>
 
@@ -29,11 +29,10 @@
           <div class="content-card">
 
                <!-- panel -->
-               <!-- *ngFor="let tr of course | course:filter | slice:(page-1)*limit:page*limit" -->
-            <div class="panel" >
+            <div class="panel" *ngFor="let tr of course | course:filter | slice:(page-1)*limit:page*limit">
                 <div class="panel-heading">
                      <!-- edit -->
-                     <button  (click)="updateCourse(tr)" type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs" style=" position: absolute;right: -10px;top: 0px;">
+                     <button  (click)="updateCourse(tr)" type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs" style=" position: absolute;right: 0px;top: 0px;">
                           <i class="material-icons">edit</i>
                       </button>
                       <!-- edit -->
@@ -42,29 +41,29 @@
                           <i class="material-icons">close</i>
                       </button>
                      <!-- remove -->
-                    <span class="panel-title">sads</span>
+                    <span class="panel-title">{{tr.name}}</span>
                 </div>
                 <div class="panel-body" >
-                    <h2>asd</h2>
-                    <p>asds</p>
+                    <h2>{{tr.status}}</h2>
+                    <p>{{tr.description}}</p>
                 </div>
                 <div class="panel-body-right">
-                 <img src="sadsd" >
+                 <img src="http://localhost:8080{{tr.image}}" >
                </div>
             </div>
             <!-- panel -->
 
         </div>
         <!-- paging -->
-        <!-- <div class="btn-group pull-right" style="align-items: 0 auto">
+        <div class="btn-group pull-right" style="align-items: 0 auto">
           <ul class="pagination" >
             <li [ngClass]="{'disabled': (page == 1)}" (click)="(page == 1) || prevPage()"><a   href="javascript:void(0)">Prev</a></li>
-              <li *ngFor="let page1 of  (pagesIndex | slice:pagesIndex.length - 4);"  [ngClass]="{'active': (currentIndex == page)}">
+              <li *ngFor="let page1 of  (pagesIndex );"  [ngClass]="{'active': (currentIndex == page)}">
                   <a (click)="setPage(page1)" href="javascript:void(0)" >{{page1}}</a>
               </li>
             <li  [ngClass]="{'disabled': (page == max)}"><a   (click)="(page == max) || nextPage()" href="javascript:void(0)" >Next</a></li>
           </ul>
-       </div> -->
+       </div>
       <!-- paging -->
           </div>
       </div>
