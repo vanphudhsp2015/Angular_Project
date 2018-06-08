@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         { title: 'with out 3-days all access pass with no commitment.' },
     ];
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService,private ref: ChangeDetectorRef) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService, private ref: ChangeDetectorRef) {
     }
 
     ngOnInit() {
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
         setInterval(() => {
             this.ref.markForCheck();
         }, 1000);
-        
+
     }
 
     // onTrainerClicked(trainerId: number) {

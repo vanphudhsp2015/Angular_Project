@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Course } from '../../core/model/course';
 import { Router } from '@angular/router';
 import { CourseService } from '../../core/service/course.service';
@@ -6,7 +6,7 @@ import { CourseService } from '../../core/service/course.service';
     selector: 'course-detail',
     templateUrl: './course-detail.component.html',
     styleUrls: ['./course-detail.component.css'],
-    // changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseDetailComponent implements OnInit {
     private course: Course[];
@@ -17,7 +17,7 @@ export class CourseDetailComponent implements OnInit {
     pagesIndex = [];
     maxpage: number = 0;
     max: number = 0;
-    constructor(private courseService: CourseService, private _router: Router) { }
+    constructor(private courseService: CourseService, private _router: Router, private ref: ChangeDetectorRef) { }
 
     ngOnInit() {
         this.init();
@@ -72,6 +72,9 @@ export class CourseDetailComponent implements OnInit {
         }, (error) => {
             console.log(error);
         });
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 100);
     }
     // prevpage
     prevPage() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Trainer } from '../../core/model/trainer';
 import { Router } from '@angular/router';
 import { TrainerService } from '../../core/service/trainer.service';
@@ -6,7 +6,7 @@ import { TrainerService } from '../../core/service/trainer.service';
     selector: 'trainer-detail',
     templateUrl: './trainer-detail.component.html',
     styleUrls: ['./trainer-detail.component.css'],
-    // changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainerDetailComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class TrainerDetailComponent implements OnInit {
     pagesIndex = [];
     maxpage: number = 0;
     max: number = 0;
-    constructor(private trainerService: TrainerService, private _router: Router) { }
+    constructor(private trainerService: TrainerService, private _router: Router, private ref: ChangeDetectorRef) { }
 
     ngOnInit() {
         this.init();
@@ -73,6 +73,10 @@ export class TrainerDetailComponent implements OnInit {
         }, (error) => {
             console.log(error);
         });
+        setInterval(() => {
+            this.ref.markForCheck();
+        }, 100);
+
     }
     // prevpage
     prevPage() {

@@ -18,6 +18,10 @@ import { TrainerComponent } from './trainer/trainer/trainer.component';
 import { TrainerDetailComponent } from './trainer/trainer-detail/trainer-detail.component';
 import { TrainerPipe } from './filter/trainer.pipe';
 import { TrainerService } from './core/service/trainer.service';
+import { SettingComponent } from './setting/setting.component';
+import { EventDashboardComponent } from './event-dashboard/event-dashboard.component';
+import { NewsDashboardComponent } from './news-dashboard/news-dashboard.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 export const SHARED_MODULE: any[] = [
     CommonModule,
     RouterModule,
@@ -28,12 +32,17 @@ export const SHARED_COMPONENTS: any[] = [
     SidebarComponent,
     FooterComponent,
     NavbarComponent,
-    HomeDashboardComponent
+    HomeDashboardComponent,
+    SettingComponent,
+    CardComponent,
+    EventDashboardComponent,
+    NewsDashboardComponent,
+    FeedbackComponent
 ];
 @NgModule({
     imports: [...SHARED_MODULE],
     exports: [...SHARED_COMPONENTS],
-    declarations: [...SHARED_COMPONENTS, CardComponent, TableComponent, CourseComponent, CourseDetailComponent, CoursePipe, TrainerComponent, TrainerDetailComponent, TrainerPipe],
+    declarations: [...SHARED_COMPONENTS, TableComponent, CourseComponent, CourseDetailComponent, CoursePipe, TrainerComponent, TrainerDetailComponent, TrainerPipe],
     providers: [CourseService, TrainerService]
 })
 export class DashboardModule { }
