@@ -5,63 +5,65 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { Course } from '../../core/model/course';
+import { News } from '../../core/model/news';
+
 @Injectable()
-export class CourseService {
+export class NewsService {
     private baseUrl: string = 'http://localhost:8080/api';
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
-    private course = new Course();
+    private news = new News();
     public token: string;
     constructor(private _http: Http) {
         this.token = localStorage.getItem('token');
     }
-    // getcount
+    // getCount
     getCount() {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // getdata
-        return this._http.get('http://localhost:8080/api/course/count', options).map((response: Response) => response.json());
+        return this._http.get(this.baseUrl + '/news/count', options).map((response: Response) => response.json());
     }
     // getdata
-    getCourse() {
+    getFeedback() {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // getdata
-        return this._http.get('http://localhost:8080/api/course', options).map((response: Response) => response.json());
+        return this._http.get(this.baseUrl + '/news', options).map((response: Response) => response.json());
     }
     // Add data
-    createCourse(course: Course) {
+    createFeedback(news: News) {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
         // create
-        return this._http.post('http://localhost:8080/api/course/new', JSON.stringify(course), options).map(this.extractData).catch(this.errorHandler);
+        return this._http.post(this.baseUrl + '/news/new', JSON.stringify(news), options).map(this.extractData).catch(this.errorHandler);
 
     }
     // update data
-    updateCourse(course: Course) {
+    updateFeedback(news: News) {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
         // create
-        return this._http.put('http://localhost:8080/api/course/update', JSON.stringify(course), options).map(this.extractData).catch(this.errorHandler);
+        return this._http.put(this.baseUrl + '/news/update', JSON.stringify(news), options).map(this.extractData).catch(this.errorHandler);
 
     }
+
     // delete data
-    deleteCourse(id: Number) {
+    deleteNews(id: Number) {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.delete('http://localhost:8080/api/course/delete/' + id, options).map(this.extractData).catch(this.errorHandler);
+        return this._http.delete(this.baseUrl + '/news/delete/' + id, options).map(this.extractData).catch(this.errorHandler);
     }
     // set data
-    setter(course: Course) {
-        this.course = course;
+    setter(news: News) {
+        this.news = news;
     }
     // get data
     getter() {
-        return this.course;
+        return this.news;
     }
     // Error
     errorHandler(error: Response) {
@@ -70,4 +72,5 @@ export class CourseService {
     private extractData(res: Response) {
         return res.text() ? res.json() : {};
     }
+
 }

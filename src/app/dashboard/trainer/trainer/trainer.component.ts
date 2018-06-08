@@ -19,12 +19,11 @@ export class TrainerComponent implements OnInit {
 
     ngOnInit() {
         this.trainer = this.trainerService.getter();
-
-
     }
 
     processForm() {
-
+        this.trainer.idCategory = 1;
+        this.trainer.image = this.base64textString;
         if (this.trainer.idTrainer == undefined) {
             this.trainerService.createTrainer(this.trainer).subscribe((trainer) => {
                 this.router.navigate(['/trainer-dashboard-detail']);
@@ -58,6 +57,7 @@ export class TrainerComponent implements OnInit {
     _handleReaderLoaded(readerEvt) {
         const binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
+        console.log(this.base64textString);
     }
 
     // clear input

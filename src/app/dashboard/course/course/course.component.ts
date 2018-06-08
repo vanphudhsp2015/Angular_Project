@@ -31,6 +31,7 @@ export class CourseComponent implements OnInit {
         this.course = this.courseService.getter();
     }
     processForm() {
+        this.course.idCategory = 1;
         this.course.image = this.base64textString;
         this.course.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd HH:mm:ss');
         if (this.course.idCourse == undefined) {

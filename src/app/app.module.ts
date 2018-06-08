@@ -34,6 +34,11 @@ import { DatePipe } from '@angular/common';
 import { LoginGuard } from './login/login.guard';
 import { NoLoginGuard } from './login/no-login.guard';
 import { TrainerService } from './dashboard/core/service/trainer.service';
+import { SlideService } from './dashboard/core/service/slide.service';
+import { EventService } from './dashboard/core/service/event.service';
+import { NewsService } from './dashboard/core/service/news.service';
+
+import { FeedbackService } from './dashboard/core/service/feedback.service';
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
@@ -56,6 +61,10 @@ export const APP_SERVICES: any[] = [
     ExceptionService,
     AuthService,
     CourseService,
+    SlideService,
+    EventService,
+    NewsService,
+    FeedbackService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: InterceptorService,

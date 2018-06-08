@@ -22,7 +22,7 @@ export class TrainerService {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // get users from api
-        return this._http.get('http://localhost:8080/api/trainer/all', options).map((response: Response) => response.json());
+        return this._http.get(this.baseUrl + '/trainer/all', options).map((response: Response) => response.json());
     }
 
     // getdata
@@ -30,7 +30,7 @@ export class TrainerService {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // get users from api
-        return this._http.get('http://localhost:8080/api/trainer/count', options).map((response: Response) => response.json());
+        return this._http.get(this.baseUrl + '/trainer/count', options).map((response: Response) => response.json());
     }
     // Add data
     createTrainer(trainer: Trainer) {
@@ -38,7 +38,7 @@ export class TrainerService {
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
         // create
-        return this._http.post('http://localhost:8080/api/trainer/new', JSON.stringify(trainer), options).map(this.extractData).catch(this.errorHandler);
+        return this._http.post(this.baseUrl + '/trainer/new', JSON.stringify(trainer), options).map(this.extractData).catch(this.errorHandler);
 
     }
 
@@ -48,21 +48,21 @@ export class TrainerService {
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.put('http://localhost:8080/api/trainer/update', JSON.stringify(trainer), options).map(this.extractData).catch(this.errorHandler);
+        return this._http.put(this.baseUrl + '/trainer/update', JSON.stringify(trainer), options).map(this.extractData).catch(this.errorHandler);
     }
     // delete data
     deleteTrainer(id: Number) {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // delete trainer
-        return this._http.delete('http://localhost:8080/api/trainer/delete/' + id, options).map(this.extractData).catch(this.errorHandler);
+        return this._http.delete(this.baseUrl + '/trainer/delete/' + id, options).map(this.extractData).catch(this.errorHandler);
     }
     // getid
     getIdTrainer(id: Number) {
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.token });
         let options = new RequestOptions({ headers: headers });
         // delete trainer
-        return this._http.get('http://localhost:8080/api/trainer/profile/' + id, options).map(this.extractData).catch(this.errorHandler);
+        return this._http.get(this.baseUrl + '/trainer/profile/' + id, options).map(this.extractData).catch(this.errorHandler);
     }
     // set data
     setter(trainer: Trainer) {
