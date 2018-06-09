@@ -4,9 +4,9 @@ import {Observable} from 'rxjs/Rx'
 @Injectable()
 export class ContactUsService {
 
-    private url: string = "http://localhost:8080/api/";
+    private url: string = "http://192.168.3.35:8080/api/";
     headers = new Headers({ 'Content-Type': 'application/json' });
-    
+
     constructor(private http: Http) { }
 
     postContact(data:any) {
@@ -15,7 +15,7 @@ export class ContactUsService {
             .map(response => response.json())
             .catch(this.handleError);
     }
-    
+
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

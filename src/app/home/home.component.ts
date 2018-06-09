@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,6 +10,9 @@ import { ROUTES } from '../shared/trainer/trainers-data';
 import { HomeService } from '../core/services/home.service';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+
+import {OwlCarousel} from 'ngx-owl-carousel';
+
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
@@ -24,6 +27,13 @@ export class HomeComponent implements OnInit {
     focusitems: any[];
 
     traineritems: any;
+
+
+    @ViewChild('owlElement') owlElement: OwlCarousel
+       fun() {
+         this.owlElement.next([200])
+         //duration 200ms
+       }
 
     items: any[] = [
         { title: 'Try out the hanah sport center' },
@@ -51,6 +61,9 @@ export class HomeComponent implements OnInit {
             data => {this.traineritems = data.content
             console.log(data);}
         );
+
+        this.fun();
+
         setInterval(() => {
             this.ref.markForCheck();
         }, 1000);

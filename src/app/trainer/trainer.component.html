@@ -49,11 +49,9 @@
     </div>
     <div class="teamWrap">
       <div class="container no-padding">
-
         <ul class="teamWrap__list clearfix">
-
           <li *ngFor="let trainers of traineritems" routerLinkActive="active" class="col-md-4 col-sm-6 teamWrap__person lazy no-padding">
-            <img src="http://localhost:8080{{trainers.image}}" />
+            <img src="http://192.168.3.35:8080{{trainers.image}}" />
             <div class="teamWrap__content text-center">
               <strong class="teamWrap__name">{{trainers.firstName+" "+trainers.lastName}}</strong>
               <span class="teamWrap__role">{{trainers.description}}</span>
@@ -67,13 +65,14 @@
           <li class="col-md-4 col-sm-6 teamWrap__person teamWrap__work linkTo">
             <div class="teamWrap__content">
               <strong class="peopleWrap__title homeSection__title">Work with us</strong>
-              <div class="peopleWrap__exc homeSection__sub">Be the next
-                <br>in line to
-                <br> join us</div>
+              <div class="peopleWrap__exc homeSection__sub">
+                <a href="contact-us">
+                  <p>Be the next</p>
+                  <p>in line to join us</p>
+                </a>
+              </div>
             </div>
           </li>
-
-
         </ul>
 
 
@@ -93,6 +92,8 @@
             <a routerLink="/home" class="button button--black button--arrow">Get in touch</a>
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
