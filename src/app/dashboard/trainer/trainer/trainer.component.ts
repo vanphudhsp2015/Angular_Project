@@ -30,6 +30,7 @@ export class TrainerComponent implements OnInit {
         this.trainer.image = this.base64textString;
         if (this.trainer.idTrainer == undefined) {
             this.trainerService.createTrainer(this.trainer).subscribe((trainer) => {
+                alert('Thêm Thành Công Giáo Viên ' + this.trainer.lastName + ' !');
                 this.router.navigate(['/trainer-dashboard-detail']);
                 this.clear();
             }, (error) => {
@@ -37,6 +38,7 @@ export class TrainerComponent implements OnInit {
             });
         } else {
             this.trainerService.updateTrainer(this.trainer).subscribe((trainer) => {
+                alert('Sửa Thành Công Giáo Viên ' + this.trainer.lastName + ' !');
                 this.router.navigate(['/trainer-dashboard-detail']);
                 this.clear();
             }, (error) => {

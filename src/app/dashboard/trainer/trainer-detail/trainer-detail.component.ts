@@ -26,9 +26,10 @@ export class TrainerDetailComponent implements OnInit {
     }
     // delete
     deleteTrainer(trainer) {
-        let answer = confirm('Bạn Muốn Xóa ?');
+        let answer = confirm('Bạn Muốn Xóa Giáo Viên ' + trainer.lastName + ' ?');
         if (answer) {
             this.trainerService.deleteTrainer(trainer.idTrainer).subscribe((data) => {
+                alert('Xóa Thành Công Giáo Viên ' + trainer.lastName + '?');
                 this.trainer.splice(this.trainer.indexOf(trainer), 1);
             }, (error) => {
                 console.log(error);
@@ -41,7 +42,7 @@ export class TrainerDetailComponent implements OnInit {
     }
     // update
     updateTrainer(trainer) {
-        let answer = confirm('Bạn Muốn Sửa ?');
+        let answer = confirm('Bạn Muốn Sửa Giáo Viên ' + trainer.lastName + ' ?');
         if (answer) {
             this.trainerService.setter(trainer);
             this._router.navigate(['trainer-dashboard']);

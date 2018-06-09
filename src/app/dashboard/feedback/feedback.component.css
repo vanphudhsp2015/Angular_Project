@@ -1,6 +1,6 @@
 
 input[type=text], select, textarea {
-  width: 80%;
+  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -309,7 +309,7 @@ label{
   height: auto;
 }
 input[type=text],input[type=date],input[type=file], select, textarea {
-  width: 80%;
+  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;

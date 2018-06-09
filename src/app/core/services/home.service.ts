@@ -4,32 +4,32 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class HomeService {
 
-    private url: string = "http://192.168.3.35:8080/api/";
+    private url: string = 'http://localhost:8080/api/';
 
     constructor(private http: Http) { }
 
     getCategories() {
-        return this.http.get(this.url + "group")
+        return this.http.get(this.url + 'group')
             .map(response => response.json())
             .catch(this.handleError);
     }
     getParentCourse() {
-        return this.http.get(this.url + "course/courseDESC/0/1")
+        return this.http.get(this.url + 'course/courseDESC/0/1')
             .map(response => response.json())
             .catch(this.handleError);
     }
     getChildCourse() {
-        return this.http.get(this.url + "course/courseDESC/0/3")
+        return this.http.get(this.url + 'course/courseDESC/0/3')
             .map(response => response.json())
             .catch(this.handleError);
     }
     getTopTrainer() {
-        return this.http.get(this.url + "trainer/top/0/5")
+        return this.http.get(this.url + 'trainer/top/0/5')
             .map(response => response.json())
             .catch(this.handleError);
     }
     getTopSlide() {
-        return this.http.get(this.url + "slide")
+        return this.http.get(this.url + 'slide')
             .map(response => response.json())
             .catch(this.handleError);
     }

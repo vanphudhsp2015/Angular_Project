@@ -143,8 +143,14 @@
                         <tbody>
                             <tr *ngFor="let tr of event | trainer:filter | slice:(page-1)*limit:page*limit ">
                                 <td>{{tr.idEvent}}</td>
-                                <td>{{tr.title}}</td>
-                                <td>{{tr.description}}</td>
+                                <td><p style=" white-space: nowrap;
+                                  width: 200px;
+                                  overflow: hidden;
+                                  text-overflow: ellipsis;">{{tr.title}}</p></td>
+                                <td><p style=" white-space: nowrap;
+                                  width: 200px;
+                                  overflow: hidden;
+                                  text-overflow: ellipsis;">{{tr.description}}</p></td>
                                 <td>{{tr.createAt}}</td>
                                 <td><p style=" white-space: nowrap;
                                   width: 200px;

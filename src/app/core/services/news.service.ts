@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Rx'
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class NewsService {
-    private url: string = "http://192.168.3.35:8080/api/";
+    private url: string = 'http://localhost:8080/api/';
 
     constructor(private http: Http) { }
 
     getTopNews() {
-        return this.http.get(this.url + "news/0/10")
+        return this.http.get(this.url + 'news/0/10')
             .map(response => response.json())
             .catch(this.handleError);
     }

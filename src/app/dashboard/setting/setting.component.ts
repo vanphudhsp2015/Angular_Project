@@ -22,7 +22,7 @@ export class SettingComponent implements OnInit {
         this.slides.image = this.base64textString;
         if (this.slides.idSlideshow == undefined) {
             this.slideService.createFeedback(this.slides).subscribe((slides) => {
-                console.log(slides);
+                alert('Thêm Thành Công !');
                 this.init();
                 // this.load();
                 // this.router.navigate(['/table-class']);
@@ -33,7 +33,7 @@ export class SettingComponent implements OnInit {
             });
         } else {
             this.slideService.updateFeedback(this.slides).subscribe((slides) => {
-                console.log(slides);
+                alert('Sửa Thành Công !');
                 this.init();
                 // this.router.navigate(['/table-class']);
                 // this.load();
@@ -42,11 +42,11 @@ export class SettingComponent implements OnInit {
                 console.log(error);
             });
         }
+        this.bottomFunction();
     }
     // getdata
     init() {
         this.slideService.getSlide().subscribe((data) => {
-            console.log(data);
             this.slide = data;
         }, (error) => {
             console.log(error);
@@ -79,6 +79,7 @@ export class SettingComponent implements OnInit {
         if (answer) {
             this.slideService.deleteSlide(slide.idSlideshow).subscribe((data) => {
                 this.slide.splice(this.slide.indexOf(slide), 1);
+                alert('Xóa Thành Công !');
                 // this.load();
             }, (error) => {
                 console.log(error);
@@ -113,6 +114,14 @@ export class SettingComponent implements OnInit {
         this.slides.description = null;
         this.slides.text = null;
 
+    }
+    topFunction() {
+        document.body.scrollTop = 50;
+        document.documentElement.scrollTop = 50;
+    }
+    bottomFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
     }
     // load
     load() {

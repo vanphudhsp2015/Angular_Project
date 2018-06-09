@@ -5,17 +5,17 @@ import { Http } from '@angular/http';
 @Injectable()
 export class CourseService {
 
-    private url: string = "http://192.168.3.35:8080/api/";
+    private url: string = 'http://localhost:8080/api/';
 
     constructor(private http: Http) { }
 
     getAllCourse() {
-        return this.http.get(this.url + "course")
+        return this.http.get(this.url + 'course')
             .map(response => response.json())
             .catch(this.handleError);
     }
-    getCourse( id:number ) {
-        return this.http.get(this.url + "course/"+id)
+    getCourse(id: number) {
+        return this.http.get(this.url + 'course/' + id)
             .map(response => response.json())
             .catch(this.handleError);
     }

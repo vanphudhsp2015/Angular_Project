@@ -101,6 +101,7 @@ export class HomeDashboardComponent implements OnInit {
         let answer = confirm('Bạn Muốn Xóa ?');
         if (answer) {
             this.eventService.deleteEvent(event.idEvent).subscribe((data) => {
+                alert('Xóa Thành Công !');
                 this.event.splice(this.event.indexOf(event), 1);
             }, (error) => {
                 console.log(error);
