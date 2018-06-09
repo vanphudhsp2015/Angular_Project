@@ -12,10 +12,10 @@ div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a
 	vertical-align: baseline;
 }
 
-/* @media (min-width: 1480px) */
+@media (min-width: 1480px){
 .container, .col2-left-layout, .account-login, .newsletter-banner-container {
 	width: 1440px;
-}
+}}
 
 .container, .col2-left-layout, .account-login, .newsletter-banner-container {
 	margin: 0 auto;

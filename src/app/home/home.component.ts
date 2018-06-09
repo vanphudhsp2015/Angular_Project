@@ -8,8 +8,8 @@ import { ROUTESP } from './data/course-parent-data';
 import { ROUTESF } from './data/focus-on-data';
 import { ROUTES } from '../shared/trainer/trainers-data';
 import { HomeService } from '../core/services/home.service';
-
-
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         { title: 'with out 3-days all access pass with no commitment.' },
     ];
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService,private ref: ChangeDetectorRef) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private home: HomeService, private ref: ChangeDetectorRef) {
     }
 
     ngOnInit() {
@@ -48,12 +48,13 @@ export class HomeComponent implements OnInit {
         this.focusitems = ROUTESF.filter(focusitems => focusitems);
         //    this.traineritems = ROUTES.filter(traineritems => traineritems);
         this.home.getTopTrainer().subscribe(
-            data => this.traineritems = data.content
+            data => {this.traineritems = data.content
+            console.log(data);}
         );
         setInterval(() => {
             this.ref.markForCheck();
         }, 1000);
-        
+
     }
 
     // onTrainerClicked(trainerId: number) {

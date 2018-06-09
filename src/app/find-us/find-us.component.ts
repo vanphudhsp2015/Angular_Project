@@ -20,13 +20,13 @@ export class FindUsComponent implements OnInit {
     lat: number = 16.065676317953837;
     lng: number = 108.22005271911621;
 
-    onChoseLocation(event){
-      this.lat = event.coords.lat;
-      this.lng = event.coords.lng;
+    onChoseLocation(event) {
+        this.lat = event.coords.lat;
+        this.lng = event.coords.lng;
     }
 
     items: any[] = [
-        { title: 'Summer`s comming'},
+        { title: 'Summer`s comming' },
     ];
 
     descriptions: any[] = [

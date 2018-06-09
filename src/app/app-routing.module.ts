@@ -11,7 +11,18 @@ import { NewsComponent } from './news/news.component';
 
 import { ROUTES as CourseRoutingModule } from './course/course-routing.module';
 import { ROUTES as TrainerRoutingModule } from './trainer/trainer-routing.module';
-
+import { HomeDashboardComponent } from './dashboard/home-dashboard/home-dashboard.component';
+import { CourseDetailComponent } from './dashboard/course/course-detail/course-detail.component';
+import { CourseComponent } from './dashboard/course/course/course.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
+import { NoLoginGuard } from './login/no-login.guard';
+import { TrainerComponent } from './dashboard/trainer/trainer/trainer.component';
+import { TrainerDetailComponent } from './dashboard/trainer/trainer-detail/trainer-detail.component';
+import { SettingComponent } from './dashboard/setting/setting.component';
+import { EventDashboardComponent } from './dashboard/event-dashboard/event-dashboard.component';
+import { NewsDashboardComponent } from './dashboard/news-dashboard/news-dashboard.component';
+import { FeedbackComponent } from './dashboard/feedback/feedback.component';
 export const ROUTES: Routes = [
     {
         path: '',
@@ -21,6 +32,10 @@ export const ROUTES: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'contact-us',
@@ -49,6 +64,42 @@ export const ROUTES: Routes = [
     {
         path: 'news',
         component: NewsComponent
+    },
+    {
+        path: 'home-dashboard', canActivate: [LoginGuard],
+        component: HomeDashboardComponent
+    },
+    {
+        path: 'course-dashboard-detail', canActivate: [LoginGuard],
+        component: CourseDetailComponent
+    },
+    {
+        path: 'course-dashboard', canActivate: [LoginGuard],
+        component: CourseComponent
+    },
+    {
+        path: 'trainer-dashboard', canActivate: [LoginGuard],
+        component: TrainerComponent
+    },
+    {
+        path: 'trainer-dashboard-detail', canActivate: [LoginGuard],
+        component: TrainerDetailComponent
+    },
+    {
+        path: 'setting-dashboard', canActivate: [LoginGuard],
+        component: SettingComponent
+    },
+    {
+        path: 'event-dashboard', canActivate: [LoginGuard],
+        component: EventDashboardComponent
+    },
+    {
+        path: 'news-dashboard', canActivate: [LoginGuard],
+        component: NewsDashboardComponent
+    },
+    {
+        path: 'feedback-dashboard', canActivate: [LoginGuard],
+        component: FeedbackComponent
     },
     {
         path: '**',

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { OwlModule } from 'ngx-owl-carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
@@ -27,7 +27,18 @@ import { CourseComponent } from './course/course.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { EventComponent } from './event/event.component';
 import { NewsComponent } from './news/news.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { LoginComponent } from './login/login.component';
+import { CourseService } from './dashboard/core/service/course.service';
+import { DatePipe } from '@angular/common';
+import { LoginGuard } from './login/login.guard';
+import { NoLoginGuard } from './login/no-login.guard';
+import { TrainerService } from './dashboard/core/service/trainer.service';
+import { SlideService } from './dashboard/core/service/slide.service';
+import { EventService } from './dashboard/core/service/event.service';
+import { NewsService } from './dashboard/core/service/news.service';
 
+import { FeedbackService } from './dashboard/core/service/feedback.service';
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
@@ -38,8 +49,11 @@ export const APP_MODULES: any[] = [
     ReactiveFormsModule,
     HttpModule,
     // AgmCoreModule,
+    OwlModule,
     TrainerModule,
-    CourseModule
+    CourseModule,
+    DashboardModule,
+    HttpClientModule
 ];
 
 export const APP_SERVICES: any[] = [
@@ -47,11 +61,17 @@ export const APP_SERVICES: any[] = [
     LocalStorageService,
     ExceptionService,
     AuthService,
+    CourseService,
+    SlideService,
+    EventService,
+    NewsService,
+    FeedbackService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: InterceptorService,
         multi: true
-    }
+    },
+
 ];
 
 export const APP_COMPONENTS: any[] = [
@@ -67,9 +87,9 @@ export const APP_COMPONENTS: any[] = [
 ];
 
 @NgModule({
-    declarations: [...APP_COMPONENTS],
+    declarations: [...APP_COMPONENTS, LoginComponent],
     imports: [...APP_MODULES],
-    providers: [...APP_SERVICES],
+    providers: [...APP_SERVICES, DatePipe, LoginGuard, NoLoginGuard, TrainerService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
