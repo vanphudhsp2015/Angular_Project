@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { OwlModule } from 'ngx-owl-carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
@@ -49,6 +49,7 @@ export const APP_MODULES: any[] = [
     ReactiveFormsModule,
     HttpModule,
     // AgmCoreModule,
+    OwlModule,
     TrainerModule,
     CourseModule,
     DashboardModule,

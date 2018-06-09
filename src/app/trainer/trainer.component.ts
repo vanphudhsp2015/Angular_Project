@@ -26,13 +26,13 @@ export class TrainerComponent implements OnInit {
     //  }
     ngOnInit() {
         this.trainerService.getAllTrainers().subscribe(
-            data => this.traineritems = data
+            data => { this.traineritems = data, console.log(this.traineritems); }
         );
         setInterval(() => {
             this.ref.markForCheck();
         }, 1000);
         // this.traineritems = ROUTES.filter(traineritems => traineritems);
-        // console.log(this.traineritems);
+
     }
 
 }

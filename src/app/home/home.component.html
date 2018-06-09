@@ -6,9 +6,11 @@
 	<div class="container no-padding">
 		<div class="homeExp__txt text-center">
 			<h2 class="homeMktg__title homeSection__title">"SPIRIT"</h2>
-         <main-title [items]="items"></main-title>
-         <main-description [descriptions]="descriptions"></main-description>
-			<a routerLink="/home"><main-button></main-button></a>
+			<main-title [items]="items"></main-title>
+			<main-description [descriptions]="descriptions"></main-description>
+			<!-- <a > -->
+				<main-button routerLink="/course"></main-button>
+			<!-- </a> -->
 		</div>
 
 		<!-- content courses -->
@@ -40,8 +42,8 @@
 				</a>
 			</li>
 		</ul>
-	<!-- content courses -->
-	<!-- content courses -->
+		<!-- content courses -->
+		<!-- content courses -->
 	</div>
 </div>
 
@@ -50,14 +52,18 @@
 	<!-- content focus-on -->
 	<div class="container homeSection__wrapper no-padding">
 
-		<div *ngFor = "let focusitems of focusitems" routerLinkActive="active" class="homeCons__txt col-sm-7 col-md-5 col-lg-push-1">
-			<h2 class="homeCons__title homeSection__title"><a class="background-cate">FOCUS ON</a></h2>
+		<div *ngFor="let focusitems of focusitems" routerLinkActive="active" class="homeCons__txt col-sm-7 col-md-5 col-lg-push-1">
+			<h2 class="homeCons__title homeSection__title">
+				<a class="background-cate">FOCUS ON</a>
+			</h2>
 			<h3 class="homeCons__title homeSection__sub">{{focusitems.title}}</h3>
 			<div class="homeCons__excerpt homeSection__excerpt" style="font-style: italic;">
 				<p>{{focusitems.description}}</p>
 			</div>
 
-			<a routerLink="/news"><main-button></main-button></a>
+			<a routerLink="/news">
+				<main-button></main-button>
+			</a>
 
 		</div>
 		<div class="homeCons__featWrapper col-sm-5 col-md-6" style="padding-right: 0px">
@@ -69,28 +75,30 @@
 
 
 <div class="homeMktg homeSection">
-    <div class="container no-padding">
-        <div class="homeMktg__txt text-center">
-            <h2 class="homeMktg__title homeSection__title">
-                Trainers
-            </h2>
-            <main-title [items]="items">
-            </main-title>
-            <main-description [descriptions]="descriptions">
-            </main-description>
-            <a routerlink="/trainer">
-                <main-button>
-                </main-button>
-            </a>
-            <div class="homeMktg__services">
-                <div class="owl-carousel owl-theme">
-                    <main-trainer *ngFor ="let trainer of traineritems" [trainer]="trainer" (trainerClicked)="onTrainerClicked($event)">
+	<div class="container no-padding">
+		<div class="homeMktg__txt text-center">
+			<h2 class="homeMktg__title homeSection__title">
+				Trainers
+			</h2>
+			<main-title [items]="items">
+			</main-title>
+			<main-description [descriptions]="descriptions">
+			</main-description>
+			<!-- <a routerlink="/trainer"> -->
+				<main-button routerLink="/trainer">
+				</main-button>
+			<!-- </a> -->
+			<div class="homeMktg__services">
+				<owl-carousel [options]="{items: 3, dots: false, navigation: false}" [items]="traineritems" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+					<main-trainer *ngFor="let trainers of traineritems" [trainer]="trainers" (trainerClicked)="onTrainerClicked($event)">
+					</main-trainer>
+				</owl-carousel>
+				<!-- <div class="owl-carousel owl-theme">
+                    <main-trainer *ngFor ="let trainers of traineritems" [trainer]="trainers" (trainerClicked)="onTrainerClicked($event)">
                     </main-trainer>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div> -->
+			</div>
+		</div>
+	</div>
 </div>
-
-
 <main-footer></main-footer>
