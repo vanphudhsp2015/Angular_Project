@@ -24,18 +24,11 @@ export class CourseDetailComponent implements OnInit {
         }, 1000);
     }
     course: any ;
-    // = [
-
-    //         { levels: 'classic', title: 'CLASSIC COURSE', content: '/***/',  class: "/courses-detail/classic" },
-    //         { levels: 'advanced', title: 'ADVANCED COURSE', content: '/***/',  class: "/courses-detail/advance" },
-    //         { levels: 'normal', title: 'NORMAL COURSE', content: '/***/', class: "/courses-detail/normal" },
-    //         { levels: 'cro', title: 'CRO COURSE', content: '/***/', class: "/courses-detail/cro" },
-
-    //     ];
+    
     start: string;
     
-    stringSologan1: string;
-    stringSologan2: string;
+    stringSologan1: string="COURSE DETAIL";
+    stringSologan2: string="Lorem Ipsum is simply dummy text of the printing and typesetting industry. ";
 
     constructor(private activatedRoute:ActivatedRoute,private courseService:CourseService,private ref: ChangeDetectorRef) {
         
