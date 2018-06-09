@@ -56,6 +56,15 @@ export class FeedbackComponent implements OnInit {
                 console.log(error);
             });
         }
+        this.bottomFunction();
+    }
+    topFunction() {
+        document.body.scrollTop = 200;
+        document.documentElement.scrollTop = 200;
+    }
+    bottomFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
     }
     // update
     updateFeedback(feedback) {

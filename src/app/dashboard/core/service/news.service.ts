@@ -9,7 +9,7 @@ import { News } from '../../core/model/news';
 
 @Injectable()
 export class NewsService {
-    private baseUrl: string = 'http://localhost:8080/api';
+    private baseUrl: string = 'http://192.168.3.35:8080/api';
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
     private news = new News();

@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class EventService {
 
-    private url: string = "http://localhost:8080/api/";
+    private url: string = "http://192.168.3.35:8080/api/";
 
     constructor(private http: Http) { }
 
@@ -13,7 +13,7 @@ export class EventService {
             .map(response => response.json())
             .catch(this.handleError);
     }
-    
+
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

@@ -44,6 +44,14 @@ export class NewsDashboardComponent implements OnInit {
     load() {
         location.reload();
     }
+    topFunction() {
+        document.body.scrollTop = 200;
+        document.documentElement.scrollTop = 200;
+    }
+    bottomFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
+    }
     processForm() {
         this.newss.idCategory = 1;
         if (this.newss.idNews == undefined) {
@@ -67,6 +75,7 @@ export class NewsDashboardComponent implements OnInit {
                 console.log(error);
             });
         }
+        this.bottomFunction();
     }
     // getdata
     init() {
