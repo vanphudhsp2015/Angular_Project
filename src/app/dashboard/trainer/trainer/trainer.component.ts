@@ -11,7 +11,10 @@ import { TrainerService } from '../../core/service/trainer.service';
 })
 export class TrainerComponent implements OnInit {
     private base64textString: String = '';
+
     private trainer: Trainer;
+    // tslint:disable-next-line:variable-name
+    private base64textString_update: String = '';
     photos: Object;
     constructor(
         private router: Router,
@@ -19,6 +22,7 @@ export class TrainerComponent implements OnInit {
 
     ngOnInit() {
         this.trainer = this.trainerService.getter();
+        console.log(this.trainer.image);
     }
 
     processForm() {
@@ -26,6 +30,7 @@ export class TrainerComponent implements OnInit {
         this.trainer.image = this.base64textString;
         if (this.trainer.idTrainer == undefined) {
             this.trainerService.createTrainer(this.trainer).subscribe((trainer) => {
+                alert('Thêm Thành Công Giáo Viên ' + this.trainer.lastName + ' !');
                 this.router.navigate(['/trainer-dashboard-detail']);
                 this.clear();
             }, (error) => {
@@ -33,6 +38,7 @@ export class TrainerComponent implements OnInit {
             });
         } else {
             this.trainerService.updateTrainer(this.trainer).subscribe((trainer) => {
+                alert('Sửa Thành Công Giáo Viên ' + this.trainer.lastName + ' !');
                 this.router.navigate(['/trainer-dashboard-detail']);
                 this.clear();
             }, (error) => {
@@ -45,7 +51,7 @@ export class TrainerComponent implements OnInit {
         // tslint:disable-next-line:prefer-const
         let files = evt.target.files;
         const file = files[0];
-
+        console.log(files);
         if (files && file) {
             const reader = new FileReader();
 
@@ -57,7 +63,6 @@ export class TrainerComponent implements OnInit {
     _handleReaderLoaded(readerEvt) {
         const binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
-        console.log(this.base64textString);
     }
 
     // clear input

@@ -14,8 +14,8 @@ export const ROUTES: RouteInfo[] = [
     { path: 'feedback-dashboard', title: 'Phản Hồi', icon: 'feedback', class: '' },
     { path: 'trainer-dashboard', title: 'Biểu Mẫu Giáo Viên', icon: 'person', class: '' },
     { path: 'trainer-dashboard-detail', title: 'Giáo Viên', icon: 'class', class: '' },
-    { path: 'course-dashboard-detail', title: 'Danh Sách Lớp', icon: 'format_align_justify', class: '' },
     { path: 'course-dashboard', title: 'Biểu Mẫu Lớp', icon: 'assignment_ind', class: '' },
+    { path: 'course-dashboard-detail', title: 'Danh Sách Lớp', icon: 'format_align_justify', class: '' },
     { path: 'setting-dashboard', title: 'Cài Đặt', icon: 'perm_data_setting', class: '' },
 ];
 @Component({

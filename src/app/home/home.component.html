@@ -13,38 +13,38 @@
          <!-- </a> -->
       </div>
 
-      <!-- content courses -->
-      <!-- content courses -->
-      <ul class="clientsList clearfix">
-         <li *ngFor="let parentcourse of parentcourse" routerLinkActive="active" class="linkTo client all diesel industries big">
-            <img class="client__image" src="http://192.168.3.35:8080{{parentcourse.image}}" />
-            <div class="client__overlay"></div>
-            <a class="linkFrom" [routerLink]="['/course',parentcourse.idCourse]">
-               <div class="client__box text-center">
-                  <strong class="client__name text-uppercase">{{parentcourse.name}}</strong>
-                  <div class="client__sector">
-                     <p>{{parentcourse.description}}</p>
-                  </div>
-               </div>
-            </a>
-         </li>
+		<!-- content courses -->
+		<!-- content courses -->
+		<ul class="clientsList clearfix">
+			<li *ngFor = "let parentcourse of parentcourse" routerLinkActive="active" class="linkTo client all diesel industries big">
+				<img class="client__image" src="http://localhost:8080{{parentcourse.image}}" />
+				<div class="client__overlay"></div>
+				<a class="linkFrom" [routerLink]="['/course',parentcourse.idCourse]">
+					<div class="client__box text-center">
+						<strong class="client__name text-uppercase">{{parentcourse.name}}</strong>
+						<div class="client__sector">
+							<p>{{parentcourse.description}}</p>
+						</div>
+					</div>
+				</a>
+			</li>
 
-         <li *ngFor="let childcourse of childcourses" routerLinkActive="active" class="linkTo client all cisalfa industries small">
-            <img class="client__image" src="http://192.168.3.35:8080{{childcourse.image}}" />
-            <div class="client__overlay"></div>
-            <a class="linkFrom" [routerLink]="['/course',childcourse.idCourse]">
-               <div class="client__box text-center">
-                  <strong class="client__name text-uppercase">{{childcourse.name}}</strong>
-                  <div class="client__sector">
-                     <p>{{childcourse.description}}</p>
-                  </div>
-               </div>
-            </a>
-         </li>
-      </ul>
-      <!-- content courses -->
-      <!-- content courses -->
-   </div>
+			<li *ngFor = "let childcourse of childcourses" routerLinkActive="active" class="linkTo client all cisalfa industries small">
+				<img class="client__image" src="http://localhost:8080{{childcourse.image}}" />
+				<div class="client__overlay"></div>
+				<a class="linkFrom" [routerLink]="['/course',childcourse.idCourse]">
+					<div class="client__box text-center">
+						<strong class="client__name text-uppercase">{{childcourse.name}}</strong>
+						<div class="client__sector">
+							<p>{{childcourse.description}}</p>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<!-- content courses -->
+		<!-- content courses -->
+	</div>
 </div>
 
 <div class="homeExp homeSection" style="background-color: #F5F5F5">

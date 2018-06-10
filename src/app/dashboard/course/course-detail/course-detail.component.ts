@@ -24,11 +24,12 @@ export class CourseDetailComponent implements OnInit {
     }
     // delete
     deleteCourse(course) {
-        let answer = confirm('Bạn Muốn Xóa ?');
+        let answer = confirm('Bạn Muốn Xóa Lớp ' + course.name + '?');
         if (answer) {
             // some code
             this.courseService.deleteCourse(course.idCourse).subscribe((data) => {
                 this.course.splice(this.course.indexOf(course), 1);
+                alert('Đã Xóa Lớp :' + course.name);
             }, (error) => {
                 console.log(error);
             });
@@ -40,7 +41,7 @@ export class CourseDetailComponent implements OnInit {
     }
     // update
     updateCourse(course) {
-        let answer = confirm('Bạn Muốn Sửa ?');
+        let answer = confirm('Bạn Muốn Sửa Lớp ' + course.name + '?');
         if (answer) {
             this.courseService.setter(course);
             this._router.navigate(['course-dashboard']);

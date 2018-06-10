@@ -44,12 +44,20 @@ export class NewsDashboardComponent implements OnInit {
     load() {
         location.reload();
     }
+    topFunction() {
+        document.body.scrollTop = 200;
+        document.documentElement.scrollTop = 200;
+    }
+    bottomFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
+    }
     processForm() {
         this.newss.idCategory = 1;
         if (this.newss.idNews == undefined) {
             this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd HH:mm:ss');
             this.newsService.createFeedback(this.newss).subscribe((newss) => {
-                console.log(newss);
+                alert('Thêm Thành Công !');
                 this.init();
                 this.load();
                 this.clear();
@@ -59,7 +67,7 @@ export class NewsDashboardComponent implements OnInit {
         } else {
             this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd HH:mm:ss');
             this.newsService.updateFeedback(this.newss).subscribe((newss) => {
-                console.log(newss);
+                alert('Sửa Thành Công !');
                 this.init();
                 this.load();
                 this.clear();
@@ -67,6 +75,7 @@ export class NewsDashboardComponent implements OnInit {
                 console.log(error);
             });
         }
+        this.bottomFunction();
     }
     // getdata
     init() {
@@ -118,7 +127,8 @@ export class NewsDashboardComponent implements OnInit {
         if (answer) {
             this.newsService.deleteNews(news.idNews).subscribe((data) => {
                 this.news.splice(this.news.indexOf(news), 1);
-                // this.load();
+                alert('Sửa Thành Công !');
+                this.load();
             }, (error) => {
                 console.log(error);
             });

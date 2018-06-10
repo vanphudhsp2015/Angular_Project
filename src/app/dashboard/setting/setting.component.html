@@ -68,7 +68,7 @@
                   </div>
 
                   <div class="row">
-                    <button type="submit" style="border-radius: 1px;background: #099d6e;float: right;">Lưu</button>
+                    <button type="submit" style="border-radius: 1px;background: #099d6e;float: right; border-radius: 3px">Lưu</button>
                   </div>
                 </form>
                 <!-- card -->
@@ -85,7 +85,7 @@
                 <!-- panel -->
                 <div class="panel" *ngFor="let tr of slide">
                   <!-- edit -->
-                  <button  (click)="updateSlide(tr)" type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs" style=" position: absolute;right: -10px;top: -10px;">
+                  <button  (click)="updateSlide(tr)||topFunction()" type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs" style=" position: absolute;right: -10px;top: -10px;">
                       <i class="material-icons">edit</i>
                   </button>
                   <!-- edit -->
@@ -96,7 +96,7 @@
                  <!-- remove -->
 
                   <div class="panel-body-right" >
-                    <img src="http://192.168.3.35:8080{{tr.image}}">
+                    <img src="http://localhost:8080{{tr.image}}">
                   </div>
                 </div>
                 <!-- panel -->

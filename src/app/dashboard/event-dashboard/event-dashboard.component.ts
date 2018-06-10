@@ -51,6 +51,7 @@ export class EventDashboardComponent implements OnInit {
         this.event.image = this.base64textString;
         if (this.event.idEvent == undefined) {
             this.eventService.createEvent(this.event).subscribe((data) => {
+                alert('Thêm Thành Công !');
                 this.router.navigate(['home-dashboard']);
                 this.clear();
             }, (error) => {
@@ -58,6 +59,7 @@ export class EventDashboardComponent implements OnInit {
             });
         } else {
             this.eventService.updateEvent(this.event).subscribe((data) => {
+                alert('Sửa Thành Công !');
                 this.router.navigate(['home-dashboard']);
                 this.clear();
             }, (error) => {

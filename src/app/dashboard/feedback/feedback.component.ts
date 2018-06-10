@@ -33,29 +33,35 @@ export class FeedbackComponent implements OnInit {
         location.reload();
     }
     processForm() {
-        this.feedbacks.image = 'https://www.freeiconspng.com/uploads/feedback-icon-31.png';
+        this.feedbacks.image = 'https://www.materialui.co/materialIcons/action/feedback_black_192x192.png';
         if (this.feedbacks.idFeedback == undefined) {
             this.feedbackService.createFeedback(this.feedbacks).subscribe((feedbacks) => {
-                console.log(feedbacks);
+                alert('Thêm Thành Công !');
                 this.init();
                 this.load();
-                // this.router.navigate(['/table-class']);
-
                 this.clear();
             }, (error) => {
                 console.log(error);
             });
         } else {
             this.feedbackService.updateFeedback(this.feedbacks).subscribe((feedbacks) => {
-                console.log(feedbacks);
+                alert('Sửa Thành Công !');
                 this.init();
-                // this.router.navigate(['/table-class']);
                 this.load();
                 this.clear();
             }, (error) => {
                 console.log(error);
             });
         }
+        this.bottomFunction();
+    }
+    topFunction() {
+        document.body.scrollTop = 200;
+        document.documentElement.scrollTop = 200;
+    }
+    bottomFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
     }
     // update
     updateFeedback(feedback) {
@@ -105,6 +111,7 @@ export class FeedbackComponent implements OnInit {
         if (answer) {
             this.feedbackService.deleteFeedback(feedback.idFeedback).subscribe((data) => {
                 this.feedback.splice(this.feedback.indexOf(feedback), 1);
+                alert('Xóa Thành Công :' + feedback.message);
                 this.load();
             }, (error) => {
                 console.log(error);

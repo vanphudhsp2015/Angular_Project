@@ -34,7 +34,7 @@ export const ROUTES: Routes = [
         component: HomeComponent
     },
     {
-        path: 'login',
+        path: 'login', canActivate: [NoLoginGuard],
         component: LoginComponent
     },
     {
