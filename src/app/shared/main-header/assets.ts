@@ -7,5 +7,5 @@ export const ROUTES: RouteInfo[] = [
     { title: 'NEWS', routerUrl: 'news', class: [] },
     { title: 'COURSE', routerUrl: 'course', class: [] },
     { title: 'EVENTS', routerUrl: 'events', class: [] },
-    // { title: 'MEMBER', routerUrl: '/member', class: ['LOG-IN', 'REGISTER'] },
+    { title: 'JOIN', routerUrl: 'login', class: [''] },
 ];

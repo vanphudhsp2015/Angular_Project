@@ -3,102 +3,102 @@
 
 <div class="homeExp homeSection" style="background-color: #FFFFFF">
 
-	<div class="container no-padding">
-		<div class="homeExp__txt text-center">
-			<h2 class="homeMktg__title homeSection__title">"SPIRIT"</h2>
-			<main-title [items]="items"></main-title>
-			<main-description [descriptions]="descriptions"></main-description>
-			<!-- <a > -->
-				<main-button routerLink="/course"></main-button>
-			<!-- </a> -->
-		</div>
+   <div class="container no-padding">
+      <div class="homeExp__txt text-center">
+         <h2 class="homeMktg__title homeSection__title">"SPIRIT"</h2>
+         <main-title [items]="items"></main-title>
+         <main-description [descriptions]="descriptions"></main-description>
+         <!-- <a > -->
+            <main-button routerLink="/course"></main-button>
+         <!-- </a> -->
+      </div>
 
-		<!-- content courses -->
-		<!-- content courses -->
-		<ul class="clientsList clearfix">
-			<li *ngFor="let parentcourse of parentcourse" routerLinkActive="active" class="linkTo client all diesel industries big">
-				<img class="client__image" src="http://localhost:8080{{parentcourse.image}}" />
-				<div class="client__overlay"></div>
-				<a class="linkFrom" [routerLink]="['/course',parentcourse.idCourse]">
-					<div class="client__box text-center">
-						<strong class="client__name text-uppercase">{{parentcourse.name}}</strong>
-						<div class="client__sector">
-							<p>{{parentcourse.description}}</p>
-						</div>
-					</div>
-				</a>
-			</li>
+      <!-- content courses -->
+      <!-- content courses -->
+      <ul class="clientsList clearfix">
+         <li *ngFor="let parentcourse of parentcourse" routerLinkActive="active" class="linkTo client all diesel industries big">
+            <img class="client__image" src="http://192.168.3.35:8080{{parentcourse.image}}" />
+            <div class="client__overlay"></div>
+            <a class="linkFrom" [routerLink]="['/course',parentcourse.idCourse]">
+               <div class="client__box text-center">
+                  <strong class="client__name text-uppercase">{{parentcourse.name}}</strong>
+                  <div class="client__sector">
+                     <p>{{parentcourse.description}}</p>
+                  </div>
+               </div>
+            </a>
+         </li>
 
-			<li *ngFor="let childcourse of childcourses" routerLinkActive="active" class="linkTo client all cisalfa industries small">
-				<img class="client__image" src="http://localhost:8080{{childcourse.image}}" />
-				<div class="client__overlay"></div>
-				<a class="linkFrom" [routerLink]="['/course',childcourse.idCourse]">
-					<div class="client__box text-center">
-						<strong class="client__name text-uppercase">{{childcourse.name}}</strong>
-						<div class="client__sector">
-							<p>{{childcourse.description}}</p>
-						</div>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<!-- content courses -->
-		<!-- content courses -->
-	</div>
+         <li *ngFor="let childcourse of childcourses" routerLinkActive="active" class="linkTo client all cisalfa industries small">
+            <img class="client__image" src="http://192.168.3.35:8080{{childcourse.image}}" />
+            <div class="client__overlay"></div>
+            <a class="linkFrom" [routerLink]="['/course',childcourse.idCourse]">
+               <div class="client__box text-center">
+                  <strong class="client__name text-uppercase">{{childcourse.name}}</strong>
+                  <div class="client__sector">
+                     <p>{{childcourse.description}}</p>
+                  </div>
+               </div>
+            </a>
+         </li>
+      </ul>
+      <!-- content courses -->
+      <!-- content courses -->
+   </div>
 </div>
 
 <div class="homeExp homeSection" style="background-color: #F5F5F5">
-	<!-- content focus-on -->
-	<!-- content focus-on -->
-	<div class="container homeSection__wrapper no-padding">
+   <!-- content focus-on -->
+   <!-- content focus-on -->
+   <div class="container homeSection__wrapper no-padding">
 
-		<div *ngFor="let focusitems of focusitems" routerLinkActive="active" class="homeCons__txt col-sm-7 col-md-5 col-lg-push-1">
-			<h2 class="homeCons__title homeSection__title">
-				<a class="background-cate">FOCUS ON</a>
-			</h2>
-			<h3 class="homeCons__title homeSection__sub">{{focusitems.title}}</h3>
-			<div class="homeCons__excerpt homeSection__excerpt" style="font-style: italic;">
-				<p>{{focusitems.description}}</p>
-			</div>
+      <div *ngFor="let focusitems of focusitems" routerLinkActive="active" class="homeCons__txt col-sm-7 col-md-5 col-lg-push-1">
+         <h2 class="homeCons__title homeSection__title">
+            <a class="background-cate">FOCUS ON</a>
+         </h2>
+         <h3 class="homeCons__title homeSection__sub">{{focusitems.title}}</h3>
+         <div class="homeCons__excerpt homeSection__excerpt" style="font-style: italic;">
+            <p>{{focusitems.description}}</p>
+         </div>
 
-			<a routerLink="/news">
-				<main-button></main-button>
-			</a>
+         <a routerLink="/news">
+            <main-button></main-button>
+         </a>
 
-		</div>
-		<div class="homeCons__featWrapper col-sm-5 col-md-6" style="padding-right: 0px">
-			<img class="homeCons__feat lazy" src="assets/img/focuson.jpg" />
-		</div>
-	</div>
+      </div>
+      <div class="homeCons__featWrapper col-sm-5 col-md-6" style="padding-right: 0px">
+         <img class="homeCons__feat lazy" src="assets/img/focuson.jpg" />
+      </div>
+   </div>
 
 </div>
 
 
 <div class="homeMktg homeSection">
-	<div class="container no-padding">
-		<div class="homeMktg__txt text-center">
-			<h2 class="homeMktg__title homeSection__title">
-				Trainers
-			</h2>
-			<main-title [items]="items">
-			</main-title>
-			<main-description [descriptions]="descriptions">
-			</main-description>
-			<!-- <a routerlink="/trainer"> -->
-				<main-button routerLink="/trainer">
-				</main-button>
-			<!-- </a> -->
-			<div class="homeMktg__services">
-				<owl-carousel [options]="{items: 3, dots: false, navigation: false}" [items]="traineritems" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-					<main-trainer *ngFor="let trainers of traineritems" [trainer]="trainers" (trainerClicked)="onTrainerClicked($event)">
-					</main-trainer>
-				</owl-carousel>
-				<!-- <div class="owl-carousel owl-theme">
+   <div class="container no-padding">
+      <div class="homeMktg__txt text-center">
+         <h2 class="homeMktg__title homeSection__title">
+            Trainers
+         </h2>
+         <main-title [items]="items">
+         </main-title>
+         <main-description [descriptions]="descriptions">
+         </main-description>
+         <!-- <a routerlink="/trainer"> -->
+            <main-button routerLink="/trainer">
+            </main-button>
+         <!-- </a> -->
+         <div class="homeMktg__services">
+            <owl-carousel #owlElement [options]="{items: 3, dots: false, navigation: true, autoplayTimeout:2000,navText:['<', '>'], autoplay: true, loop: true}" [items]="traineritems" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+               <main-trainer *ngFor="let trainers of traineritems" [trainer]="trainers" (trainerClicked)="onTrainerClicked($event)">
+               </main-trainer>
+            </owl-carousel>
+            <!-- <div class="owl-carousel owl-theme">
                     <main-trainer *ngFor ="let trainers of traineritems" [trainer]="trainers" (trainerClicked)="onTrainerClicked($event)">
                     </main-trainer>
                 </div> -->
-			</div>
-		</div>
-	</div>
+         </div>
+      </div>
+   </div>
 </div>
 <main-footer></main-footer>
