@@ -55,7 +55,7 @@ export class NewsDashboardComponent implements OnInit {
     processForm() {
         this.newss.idCategory = 1;
         if (this.newss.idNews == undefined) {
-            this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd HH:mm:ss');
+            this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd');
             this.newsService.createFeedback(this.newss).subscribe((newss) => {
                 alert('Thêm Thành Công !');
                 this.init();
@@ -65,7 +65,7 @@ export class NewsDashboardComponent implements OnInit {
                 console.log(error);
             });
         } else {
-            this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd HH:mm:ss');
+            this.newss.createAt = this.datepipe.transform(this.myDate, 'yyyy-MM-dd');
             this.newsService.updateFeedback(this.newss).subscribe((newss) => {
                 alert('Sửa Thành Công !');
                 this.init();
