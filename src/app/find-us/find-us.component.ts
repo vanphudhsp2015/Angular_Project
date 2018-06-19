@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-// import { AgmCoreModule } from '@agm/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,7 +25,7 @@ export class FindUsComponent implements OnInit {
     }
 
     items: any[] = [
-        { title: 'Summer`s comming' },
+        { title: 'We Can Swim!' },
     ];
 
     descriptions: any[] = [
