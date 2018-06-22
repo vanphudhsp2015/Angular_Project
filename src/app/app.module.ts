@@ -39,6 +39,7 @@ import { EventService } from './dashboard/core/service/event.service';
 import { NewsService } from './dashboard/core/service/news.service';
 
 import { FeedbackService } from './dashboard/core/service/feedback.service';
+import { RegisterComponent } from './register/register.component';
 export const APP_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
@@ -87,7 +88,7 @@ export const APP_COMPONENTS: any[] = [
 ];
 
 @NgModule({
-    declarations: [...APP_COMPONENTS, LoginComponent],
+    declarations: [...APP_COMPONENTS, LoginComponent, RegisterComponent],
     imports: [...APP_MODULES],
     providers: [...APP_SERVICES, DatePipe, LoginGuard, NoLoginGuard, TrainerService],
     bootstrap: [AppComponent]

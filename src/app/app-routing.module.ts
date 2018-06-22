@@ -17,6 +17,7 @@ import { CourseComponent } from './dashboard/course/course/course.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login/login.guard';
 import { NoLoginGuard } from './login/no-login.guard';
+import { RegisterComponent } from './register/register.component';
 import { TrainerComponent } from './dashboard/trainer/trainer/trainer.component';
 import { TrainerDetailComponent } from './dashboard/trainer/trainer-detail/trainer-detail.component';
 import { SettingComponent } from './dashboard/setting/setting.component';
@@ -36,6 +37,10 @@ export const ROUTES: Routes = [
     {
         path: 'login', canActivate: [NoLoginGuard],
         component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent,
     },
     {
         path: 'contact-us',
