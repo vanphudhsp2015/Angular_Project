@@ -12,9 +12,9 @@ import { DatePipe } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseComponent implements OnInit {
-    private myDate = new Date();
-    private base64textString: String = '';
-    private course: Course;
+    myDate = new Date();
+    base64textString: String = '';
+    course: Course;
     editorConfig = {
         editable: true,
         spellcheck: false,

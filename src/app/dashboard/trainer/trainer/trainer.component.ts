@@ -10,11 +10,11 @@ import { TrainerService } from '../../core/service/trainer.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainerComponent implements OnInit {
-    private base64textString: String = '';
+    base64textString: String = '';
 
-    private trainer: Trainer;
+    trainer: Trainer;
     // tslint:disable-next-line:variable-name
-    private base64textString_update: String = '';
+    base64textString_update: String = '';
     photos: Object;
     constructor(
         private router: Router,
@@ -22,7 +22,7 @@ export class TrainerComponent implements OnInit {
 
     ngOnInit() {
         this.trainer = this.trainerService.getter();
-        console.log(this.trainer.image);
+        // console.log(this.trainer.image);
     }
 
     processForm() {
@@ -51,7 +51,7 @@ export class TrainerComponent implements OnInit {
         // tslint:disable-next-line:prefer-const
         let files = evt.target.files;
         const file = files[0];
-        console.log(files);
+        // console.log(files);
         if (files && file) {
             const reader = new FileReader();
 

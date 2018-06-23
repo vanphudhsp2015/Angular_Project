@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     //     this.router.navigate(['../trainer/', trainerId]);
     // }
     onTrainerClicked(trainerId: number) {
-        console.log('Clicked on button view profile!');
+        // console.log('Clicked on button view profile!');
         this.router.navigate(['../trainer/']);
     }
 }

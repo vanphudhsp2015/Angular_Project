@@ -10,8 +10,8 @@ import { EventService } from '../core/service/event.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventDashboardComponent implements OnInit {
-    private event: Event;
-    private base64textString: String = '';
+    event: Event;
+    base64textString: String = '';
     editorConfig = {
         editable: true,
         spellcheck: false,
@@ -43,7 +43,7 @@ export class EventDashboardComponent implements OnInit {
     _handleReaderLoaded(readerEvt) {
         const binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
-        console.log(this.base64textString);
+        // console.log(this.base64textString);
     }
     // create data
     processForm() {
