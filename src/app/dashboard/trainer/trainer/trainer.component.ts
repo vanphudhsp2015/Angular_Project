@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Trainer } from '../../core/model/trainer';
 import { Router } from '@angular/router';
 import { TrainerService } from '../../core/service/trainer.service';
+import { DatePipe } from '@angular/common';
+
 @Component({
     selector: 'trainer',
     templateUrl: './trainer.component.html',
@@ -16,18 +18,19 @@ export class TrainerComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     base64textString_update: String = '';
     photos: Object;
+    time: string;
     constructor(
         private router: Router,
-        private trainerService: TrainerService) { }
-
+        private trainerService: TrainerService, public datepipe: DatePipe) { }
     ngOnInit() {
         this.trainer = this.trainerService.getter();
-        // console.log(this.trainer.image);
+        this.time = this.datepipe.transform(this.trainer.birthday, 'yyyy-MM-dd');
     }
 
     processForm() {
         this.trainer.idCategory = 1;
         this.trainer.image = this.base64textString;
+        this.trainer.birthday = this.time;
         if (this.trainer.idTrainer == undefined) {
             this.trainerService.createTrainer(this.trainer).subscribe((trainer) => {
                 alert('Thêm Thành Công Giáo Viên ' + this.trainer.lastName + ' !');
